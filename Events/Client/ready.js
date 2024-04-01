@@ -17,20 +17,12 @@ module.exports = {
     loadCommands(client);
     loadPrefixs(client);
 
-    async function Status() {
-      const server = await client.guilds.fetch("1173050886352818217");
-
-      client.user.setPresence({
-        activities: [{
-            name: `${server.memberCount} personas`,
-            type: ActivityType.Watching,
-          }],
-        status: 'online',
-      });
-    }
-
-    Status();
-    setInterval(Status, 300000);
+    client.user.setPresence({
+      activities: [{
+        name: "🌱 Mis comandos | /help",
+        type: ActivityType.Custom
+      }],
+    })
 
     if (mongoURL) {
       try {
