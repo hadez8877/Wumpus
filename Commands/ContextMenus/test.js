@@ -9,5 +9,10 @@ module.exports = {
    *
    * @param {ChatInputCommandInteraction} interaction
    */
-  async execute(interaction) {},
+  async execute(interaction) {
+
+    return await interaction.reply({ content: "Hola Mundo!", ephemeral: true });
+
+
+  },
 };
