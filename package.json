@@ -13,6 +13,7 @@
     "axios": "^1.6.7",
     "chatgpt": "^5.2.5",
     "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
     "glob": "^8.0.3",
     "google-translate-api": "^2.3.0",
     "mongoose": "^8.2.1",

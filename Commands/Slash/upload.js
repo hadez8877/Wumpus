@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const axios = require("axios");
-const config = require("../../config.json");
+require('dotenv').config();
 
 module.exports = {
   cooldown: 10,
@@ -24,7 +24,7 @@ module.exports = {
     if (!image.name.match(/\.(png|jpe?g)$/)) return await interaction.editReply({ content: "<:UtilityMessageWarn:1200992221550358568> Solo se permiten imágenes en formato PNG o JPG." });
     
     try {
-      const response = await axios.post("https://api.imgur.com/3/image", { image: imageUrl }, { headers: { Authorization: `Client-ID ${config.imgurId}`, "Content-Type": "application/json" } } );
+      const response = await axios.post("https://api.imgur.com/3/image", { image: imageUrl }, { headers: { Authorization: `Client-ID ${process.env.IMGURID}`, "Content-Type": "application/json" } } );
 
       var embed;
       if (interaction.guild.icon) {

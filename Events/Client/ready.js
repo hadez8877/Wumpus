@@ -2,7 +2,7 @@ const { Client, ActivityType } = require("discord.js");
 const { loadCommands } = require("../../Handlers/commandHandler");
 const { loadPrefixs } = require("../../Handlers/prefixHandler");
 const mongoose = require("mongoose");
-const { mongoURL } = require("../../config.json");
+require('dotenv').config();
 
 module.exports = {
   name: "ready",
@@ -24,9 +24,9 @@ module.exports = {
       }],
     })
 
-    if (mongoURL) {
+    if (process.env.MONGOURL) {
       try {
-        await mongoose.connect(mongoURL);
+        await mongoose.connect(process.env.MONGOURL);
         console.log("Conectado a la base de datos");
       } catch (error) {
         console.error("Error al conectar a la base de datos:", error);
