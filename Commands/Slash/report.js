@@ -2,7 +2,7 @@ const { SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, T
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("report")
+    .setName("report-bug")
     .setDescription("enviar un informe de bug a el desarrollador del bot"),
   async execute (interaction) {
 
