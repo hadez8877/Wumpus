@@ -82,9 +82,9 @@ require('dotenv').config();
             .setStyle(ButtonStyle.Danger),
       
             new ButtonBuilder()
+            .setCustomId("servericon")
             .setLabel("Ver ícono del Servidor")
-            .setStyle(ButtonStyle.Link)
-            .setURL(`${server.iconURL()}`)
+            .setStyle(ButtonStyle.Secondary)
           )
       
           return await i.update({ embeds: [embed], components: [menu, button] });
@@ -127,9 +127,9 @@ require('dotenv').config();
               .setStyle(ButtonStyle.Danger),
         
               new ButtonBuilder()
+              .setCustomId("servericon")
               .setLabel("Ver ícono del Servidor")
-              .setStyle(ButtonStyle.Link)
-              .setURL(`${server.iconURL()}`)
+              .setStyle(ButtonStyle.Secondary)
             )
 
             return await i.update({ embeds: [embed], components: [menu, button] });

@@ -66,9 +66,9 @@ module.exports = {
       .setStyle(ButtonStyle.Danger),
 
       new ButtonBuilder()
+      .setCustomId("servericon")
       .setLabel("Ver ícono del Servidor")
-      .setStyle(ButtonStyle.Link)
-      .setURL(`${server.iconURL()}`)
+      .setStyle(ButtonStyle.Secondary)
     )
 
     const msg = await message.reply({ embeds: [embed], components: [menu, button], allowedMentions: ({ repliedUser: false }) });
@@ -78,8 +78,30 @@ module.exports = {
       if (!i.isButton()) return;
       if (i.user.id !== message.author.id) return;
 
-      if (i.customId == 'delete') {
+      if (i.customId === 'delete') {
         await msg.delete();
+      }
+
+      if  (i.customId === 'servericon') {
+        if (i.guild.iconURL()) {
+          const embed = new EmbedBuilder()
+          .setTitle(`Ícono de ${i.guild.name}`)
+          .setImage(`${i.guild.iconURL({ size: 512 })}`)
+          .setColor("Blurple")
+          .setTimestamp();
+  
+          const button = new ActionRowBuilder()
+          .addComponents(
+            new ButtonBuilder()
+            .setLabel("Abrir desde el navegador")
+            .setStyle(ButtonStyle.Link)
+            .setURL(`${i.guild.iconURL({ size: 512 })}`)
+          )
+
+          await i.reply({ embeds: [embed], components: [button], ephemeral: true });
+        } else {
+          await i.reply({ content: "<:WumpusCry:1187860169707749486> Este servidor no tiene ícono.", ephemeral: true });
+        }
       }
 
 
