@@ -1,5 +1,4 @@
 const { ChatInputCommandInteraction } = require("discord.js");
-const modrole = require("../../Schemas/modroleSchema");
 
 var timeout = new Set();
 
@@ -26,20 +25,6 @@ module.exports = {
             "Este comando solo puede ser utilizado por el creador de Wumpus.",
           ephemeral: true,
         });
-
-      //modrole
-      if (command.mod) {
-        var modroleData = await modrole.find({ Guild: interaction.guild.id });
-
-        if (modroleData.length > 0) {
-          const mRoles = interaction.member.roles.cache.map((role) => role.id);
-          var check = modroleData.some((value) => mRoles.includes(value.Role));
-
-          if (!check) {
-            return interaction.reply({ content: "<:BadgeStaff:1200985816101556274> No tienes los permisos de moderación para ejecutar el comando.", ephemeral: true });
-          }
-        }
-      }
 
       //cooldown
       if (command.cooldown) {
