@@ -14,7 +14,7 @@ async function loadPrefixs(client) {
     table.addRow(prefixs.name, "✅");
   });
 
-  return console.log(table.toString(), "\nComandos de Prefix Cargados");
+  return console.log(table.toString(), "\nPrefix commands loaded.");
 }
 
 module.exports = { loadPrefixs };
