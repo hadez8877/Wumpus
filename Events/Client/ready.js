@@ -12,14 +12,13 @@ module.exports = {
    * @param {Client} client 
    */
   execute: async (client) => {
-    console.log("El cliente se ha iniciado");
 
     loadCommands(client);
     loadPrefixs(client);
 
     client.user.setPresence({
       activities: [{
-        name: "🌱 Mis comandos | /help",
+        name: "I dont work! (really).",
         type: ActivityType.Custom
       }],
     })
@@ -27,10 +26,14 @@ module.exports = {
     if (process.env.MONGOURL) {
       try {
         await mongoose.connect(process.env.MONGOURL);
-        console.log("Conectado a la base de datos");
+        console.log("Connected to the database...");
       } catch (error) {
-        console.error("Error al conectar a la base de datos:", error);
+        console.error("Error connecting to database:", error);
       }
     }
+
+    console.log("The client has started!");
+
+
   },
 };
