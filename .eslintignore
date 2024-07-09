@@ -1,0 +1,9 @@
+# Ignore specific directories
+node_modules/
+dist/
+build/
+Commands/
+CommandsPrefix/
+
+# Ignore specific files
+*.md
