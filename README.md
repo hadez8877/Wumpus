@@ -63,9 +63,3 @@ In order to contribute to Wumpus you must follow the steps in [Installation](#In
 <a href="https://github.com/hadez8877/Wumpus/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hadez8877/Wumpus" />
 </a>
-  
-<<<<<<< HEAD
-</div>
-=======
-</div>
->>>>>>> c263b91db3be5241cfb30bb40ff2dae33534127d
