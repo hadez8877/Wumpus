@@ -1,2 +1,17 @@
-node_modules
-node_modules
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Build files
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
