@@ -1,0 +1,14 @@
+# Ignore specific lines containing discord.js methods
+
+*.js
+!node_modules/
+
+# slash commands
+!**/interaction.reply*
+!**/interaction.deferReply*
+!**/interaction.fetchReply*
+!**/interaction.deleteReply*
+!**/interaction.followUp*
+
+# prefix commands
+!**/message.reply*
