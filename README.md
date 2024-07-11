@@ -11,33 +11,34 @@
 </div>
 
 # Wumpus
+
 This Discord moderation bot is designed to enhance server security while fostering trust among community members. It provides a robust set of features aimed at maintaining order and safety within Discord servers of any size.
 
-
 ### Key Features:
+
 1. **Security Measures**:
-Includes tools for automated moderation, such as banning, kicking, and warning.
+   Includes tools for automated moderation, such as banning, kicking, and warning.
 
 2. **Customizable Commands**:
-Offers flexibility with configurable commands to suit server-specific needs.
+   Offers flexibility with configurable commands to suit server-specific needs.
 
 3. **Auto-Moderation**:
-Implements advanced algorithms to detect and take action on spam, NSFW content, and other rule violations automatically.
+   Implements advanced algorithms to detect and take action on spam, NSFW content, and other rule violations automatically.
 
 4. **Logging and Reporting**:
-Logs moderation actions and generates reports to keep administrators informed.
+   Logs moderation actions and generates reports to keep administrators informed.
 
 5. **Customizable Filters**:
-Allows administrators to set up custom word filters and censorship rules.
-
+   Allows administrators to set up custom word filters and censorship rules.
 
 ## Technology Stack
+
 - **[Discord.js](https://discord.js.org/)** - Leveraging the power of Discord.js to interact with the Discord API and manage server interactions.
 - **[Node.js](https://nodejs.org/en)** - Built on Node.js for scalability and efficiency.
 - **[MongoDB](https://www.mongodb.com/en)** - Integrates as a MongoDB database what persistent data storage.
 
-
 ## Installation
+
 In order to install the project, you must follow these steps:
 
 1. [Fork](https://github.com/pheralb/Wumpus/fork) this repository and clone it locally:
@@ -58,8 +59,8 @@ npm install
 
 3. Make the changes you want!
 
-
 ## Contributing
+
 In order to contribute to Wumpus you must follow the steps in [Installation](#Installation). Then, fork the repository, create your feature branch, make your changes, and submit a pull request.
 
 But if you want to contribute in a simpler way, you can start this project from _Stackblitz_ using your GitHub account:
@@ -74,8 +75,8 @@ But if you want to contribute in a simpler way, you can start this project from 
 </a>
 </div>
 
-
 ## License
+
 This project is available for free use. However, it is important to note that there are certain conditions that must be met in order to use it. These conditions are specified in the [License](https://github.com/hadez8877/Wumpus/?tab=MIT-1-ov-file). Please make sure you read and fully understand the terms and conditions before using the project. Compliance with these stipulations is mandatory for all users.
 
 The license file includes detailed information about the granted permissions, limitations, and user responsibilities. It is essential to follow all instructions to ensure correct and legal use of the project. If you have any questions about the terms, do not hesitate to contact the project author for further clarification.
