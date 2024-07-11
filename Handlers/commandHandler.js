@@ -5,7 +5,7 @@ async function loadCommands(client) {
 
   await client.commands.clear();
 
-  commandsArray = [];
+  const commandsArray = [];
 
   const Files = await loadFiles("Commands");
 
@@ -20,7 +20,7 @@ async function loadCommands(client) {
 
   client.application.commands.set(commandsArray);
 
-  return console.log(table.toString(), "\nCommands Loaded.");
+  console.log(table.toString(), "\nCommands Loaded.");
 }
 
-module.exports = { loadCommands };
+module.exports = loadCommands;

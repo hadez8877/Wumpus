@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { ChatInputCommandInteraction, Client, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require("discord.js");
 const { models } = require("mongoose");
 const { sendTranslated } = require("../Functions/translate");
@@ -36,7 +37,7 @@ module.exports = {
 
     const msg = await interaction.editReply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated(" ¿Estás seguro de eliminar todos los datos?", interaction.guild.id)}`, components: [buttons] });
 
-    let collector = await msg.createMessageComponentCollector({
+    const collector = await msg.createMessageComponentCollector({
       componentType: ComponentType.Button
     });
 

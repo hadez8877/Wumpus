@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, PermissionsBitField, EmbedBuilder } = require("discord.js");
+/* eslint-disable no-unused-vars */
+const { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 const { sendTranslated } = require("../Functions/translate");
 const subscribe = require("../Schemas/subscribeSchema");
 
@@ -53,17 +54,17 @@ module.exports = {
         Notifications: notifications
       });
 
-      let languageReplace = language
-        .replace("es", "Español")
-        .replace("en", "English")
-        .replace("pt", "Português")
-        .replace("de", "Deutsch")
-        .replace("it", "Italiano")
-        .replace("ja", "日本語")
-        .replace("zh", "中文")
-        .replace("ko", "한국어")
-        .replace("ru", "Русский")
-        .replace("ar", "العربية");
+      const languageReplace = language
+      .replace("es", "Español")
+      .replace("en", "English")
+      .replace("pt", "Português")
+      .replace("de", "Deutsch")
+      .replace("it", "Italiano")
+      .replace("ja", "日本語")
+      .replace("zh", "中文")
+      .replace("ko", "한국어")
+      .replace("ru", "Русский")
+      .replace("ar", "العربية");
 
       let notificationsReplace;
 
@@ -93,7 +94,7 @@ module.exports = {
         Notifications: notifications
       });
 
-      let languageReplace = language
+      const languageReplace = language
       .replace("es", "Español")
       .replace("en", "English")
       .replace("pt", "Português")

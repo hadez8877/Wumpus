@@ -7,7 +7,7 @@ async function sendTranslated(text, guildId) {
   const data = await subscribe.findOne({ Guild: guildId });
   const language = data?.Language || "es";
 
-  let result = await translate(text, { to: language });
+  const result = await translate(text, { to: language });
 
   return result;
 }

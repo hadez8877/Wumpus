@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { ChatInputCommandInteraction, Client, PermissionsBitField } = require("discord.js");
 const { sendTranslated } = require("../../Functions/translate");
 

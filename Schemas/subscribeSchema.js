@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-let subscribe = new Schema({
+const subscribe = new Schema({
     Guild: String,
     Language: String,
     Prefix: String,

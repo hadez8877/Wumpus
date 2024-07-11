@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { Message, Client, PermissionsBitField } = require("discord.js");
 const subscribe = require("../../Schemas/subscribeSchema");
 const { sendTranslated } = require("../../Functions/translate");
@@ -18,7 +19,7 @@ module.exports = {
     const data = await subscribe.findOne({ Guild: message.guild.id });
     const prefix = data?.Prefix || "s!";
 
-    let developers = [
+    const developers = [
       "1173072980000112671"
     ];
     
@@ -39,7 +40,7 @@ module.exports = {
     if (cmd.cooldown) {
       const cooldown = command.cooldown * 1000;
 
-      if (timeout.has(message.member.id)) return await message.reply({ content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated(`Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, interaction.guild.id)}`, allowedMentions: { repliedUser: false } });
+      if (timeout.has(message.member.id)) return await message.reply({ content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated(`Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, message.guild.id)}`, allowedMentions: { repliedUser: false } });
 
       timeout.add(message.member.id);
 
@@ -57,7 +58,7 @@ module.exports = {
       await cmd.execute(message, args, client);
     } catch (err) {
       console.error(err);
-      await message.reply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated("¡Hubo un error al ejecutar este comando!", interaction.guild.id)}\n\`\`\`${err}\`\`\``, allowedMentions: { repliedUser: false } });
+      await message.reply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated("¡Hubo un error al ejecutar este comando!", message.guild.id)}\n\`\`\`${err}\`\`\``, allowedMentions: { repliedUser: false } });
     }
 
 
