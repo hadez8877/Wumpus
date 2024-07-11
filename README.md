@@ -30,6 +30,13 @@ Logs moderation actions and generates reports to keep administrators informed.
 5. **Customizable Filters**:
 Allows administrators to set up custom word filters and censorship rules.
 
+
+## Technology Stack
+- **[Discord.js](https://discord.js.org/)** - Leveraging the power of Discord.js to interact with the Discord API and manage server interactions.
+- **[Node.js](https://nodejs.org/en)** - Built on Node.js for scalability and efficiency.
+- **[MongoDB](https://www.mongodb.com/en)** - Integrates as a MongoDB database what persistent data storage.
+
+
 ## Installation
 In order to install the project, you must follow these steps:
 
@@ -42,8 +49,8 @@ git clone git@github.com:your_username/Wumpus.git
 2. Install dependencies:
 
 ```bash
-# Install the discord.js package the latest version:
-npm install discord.js@latest
+# Install the discord.js package the 14.15.1 version:
+npm install discord.js@14.15.1
 
 # and install dependencies:
 npm install
@@ -51,15 +58,24 @@ npm install
 
 3. Make the changes you want!
 
+
 ## Contributing
-In order to contribute to Wumpus you must follow the steps in [Installation](#Installation). Then, fork the repository, create your feature branch, make your changes, and submit a pull request. Make sure your code complies with existing coding standards and includes relevant documentation.
+In order to contribute to Wumpus you must follow the steps in [Installation](#Installation). Then, fork the repository, create your feature branch, make your changes, and submit a pull request.
+
+But if you want to contribute in a simpler way, you can start this project from _Stackblitz_ using your GitHub account:
+
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/hadez8877/Wumpus)
 
 <div align="center">
-  <h2>Contributors</h2>
-</div>
-
-<div align="center">
+  <h3>Contributors</h3>
 
 <a href="https://github.com/hadez8877/Wumpus/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hadez8877/Wumpus" />
 </a>
+</div>
+
+
+## License
+This project is available for free use. However, it is important to note that there are certain conditions that must be met in order to use it. These conditions are specified in the [License](./LICENSE). Please make sure you read and fully understand the terms and conditions before using the project. Compliance with these stipulations is mandatory for all users.
+
+The license file includes detailed information about the granted permissions, limitations, and user responsibilities. It is essential to follow all instructions to ensure correct and legal use of the project. If you have any questions about the terms, do not hesitate to contact the project author for further clarification.
