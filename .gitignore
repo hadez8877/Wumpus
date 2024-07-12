@@ -18,6 +18,3 @@ temp/
 
 # Discloud configuration
 discloud.config
-
-# Editor settings
-.vscode/
