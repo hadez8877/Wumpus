@@ -23,4 +23,4 @@ async function loadCommands(client) {
   console.log(table.toString(), "\nCommands Loaded.");
 }
 
-module.exports = loadCommands;
+module.exports = { loadCommands };
