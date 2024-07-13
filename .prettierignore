@@ -1,13 +1,13 @@
-# Ignore files for PNPM
-!node_modules/
+# Ignore node_modules
+node_modules/
+
+# Ignore lockfile changes
 pnpm-lock.yaml
 
-# slash commands
+# Ensure that these files and directories are not ignored
 !**/interaction.reply*
 !**/interaction.deferReply*
 !**/interaction.fetchReply*
 !**/interaction.deleteReply*
 !**/interaction.followUp*
-
-# prefix commands
 !**/message.reply*

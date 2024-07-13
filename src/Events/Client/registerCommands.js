@@ -12,7 +12,6 @@ module.exports = {
    * @param {Client} client
    */
   execute: async (interaction, client) => {
-
     await interaction.deferReply({ ephemeral: true });
 
     if (interaction.guild.id !== "1232079004677443604" && interaction.guild.id !== "1232762906630684723") return;
@@ -42,12 +41,9 @@ module.exports = {
 
     try {
       await command.execute(interaction, client);
-
     } catch (err) {
       console.error(err);
-      await interaction.editReply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated("¡Hubo un error al ejecutar este comando!", interaction.guild.id)}\n\`\`\`${err}\`\`\``, ephemeral: true });
+      return await interaction.editReply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated("¡Hubo un error al ejecutar este comando!", interaction.guild.id)}\n\`\`\`${err}\`\`\``, ephemeral: true });
     }
-
-
-  },
+  }
 };

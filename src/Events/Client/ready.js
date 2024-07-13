@@ -3,26 +3,27 @@ const { Client, ActivityType } = require("discord.js");
 const { loadCommands } = require("../../Handlers/commandHandler");
 const { loadPrefixs } = require("../../Handlers/prefixHandler");
 const mongoose = require("mongoose");
-require('dotenv').config();
+require("dotenv").config();
 
 module.exports = {
   name: "ready",
   once: true,
   /**
-   * 
-   * @param {Client} client 
+   *
+   * @param {Client} client
    */
   execute: async (client) => {
-
     loadCommands(client);
     loadPrefixs(client);
 
     client.user.setPresence({
-      activities: [{
-        name: "I dont work! (really).",
-        type: ActivityType.Custom
-      }],
-    })
+      activities: [
+        {
+          name: "I dont work! (really).",
+          type: ActivityType.Custom
+        }
+      ]
+    });
 
     if (process.env.MONGOURL) {
       try {
@@ -34,7 +35,5 @@ module.exports = {
     }
 
     console.log("The client has started!");
-
-
-  },
+  }
 };
