@@ -1,7 +1,7 @@
 ---
 name: Request Wumpus.
 about: Request a new feature or improvement for the Wumpus.
-title: '🔔 [Request]:'
+title: "🔔 [Request]:"
 labels: request
 ---
 
