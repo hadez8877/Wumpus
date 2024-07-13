@@ -27,7 +27,7 @@ module.exports = {
     if (process.env.MONGOURL) {
       try {
         await mongoose.connect(process.env.MONGOURL);
-        console.log("Connected to the database...");
+        console.log("Connected to the database.");
       } catch (error) {
         console.error("Error connecting to database:", error);
       }

@@ -5,7 +5,7 @@ async function loadPrefixs(client) {
 
   await client.prefixs.clear();
 
-  const Files = await loadFiles("CommandsPrefix");
+  const Files = await loadFiles("src/CommandsPrefix");
 
   Files.forEach((file) => {
     const prefixs = require(file);

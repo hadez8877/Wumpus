@@ -7,7 +7,7 @@ async function loadCommands(client) {
 
   const commandsArray = [];
 
-  const Files = await loadFiles("Commands");
+  const Files = await loadFiles("src/Commands");
 
   Files.forEach((file) => {
     const command = require(file);
