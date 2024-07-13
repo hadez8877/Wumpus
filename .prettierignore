@@ -1,7 +1,6 @@
-# Ignore specific lines containing discord.js methods
-
-*.js
+# Ignore files for PNPM
 !node_modules/
+pnpm-lock.yaml
 
 # slash commands
 !**/interaction.reply*
