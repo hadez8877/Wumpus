@@ -5,6 +5,7 @@
   "scripts": {
     "bot": "node --watch .",
     "lint": "eslint .",
+    "test": "vitest",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },
@@ -28,6 +29,7 @@
     "@eslint/js": "9.6.0",
     "eslint": "9.6.0",
     "globals": "15.8.0",
-    "prettier": "3.3.2"
+    "prettier": "3.3.2",
+    "vitest": "2.0.2"
   }
 }
