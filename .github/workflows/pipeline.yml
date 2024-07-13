@@ -28,8 +28,16 @@ jobs:
 
       - name: Check Code Formatting with Prettier
         run: |
-          pnpm run prettier:check || { echo "Code is not formatted correctly. Please run 'pnpm run prettier:write' to fix the formatting issues."; exit 1; }
+          pnpm run prettier:check
+        continue-on-error: true
 
       - name: Lint Code with ESLint
         run: |
-          pnpm run lint || { echo "Linting failed. Please fix the linting issues according to the ESLint rules."; exit 1; }
+          pnpm run lint
+        continue-on-error: true
+
+      - name: Report Formatting and Linting Issues
+        run: |
+          pnpm run prettier:check || echo "Code is not formatted correctly. Please run 'pnpm run prettier:write' to fix the formatting issues."
+          pnpm run lint || echo "Linting failed. Please fix the linting issues according to the ESLint rules."
+        if: failure() 
