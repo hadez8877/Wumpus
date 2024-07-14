@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
-import { loadEvents } from "./Handlers/eventHandler";
+import { loadEvents } from "./handlers/eventHandler";
 import { describe, test, expect } from "vitest";
 
 require("dotenv").config();
@@ -25,9 +25,10 @@ describe("Bot Tests", async () => {
   });
 
   test("The bot should be started", async () => {
-    await new Promise((resolve) => {
+    // eslint-disable-next-line no-async-promise-executor
+    await new Promise(async (resolve) => {
       client.once("ready", resolve);
-      client.login(process.env.TOKENTEST);
+      await client.login(process.env.TOKENTEST);
     }, 60000);
 
     expect(client.isReady()).toBe(true);

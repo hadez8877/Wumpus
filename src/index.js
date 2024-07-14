@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
-const { loadEvents } = require("./Handlers/eventHandler");
+const { loadEvents } = require("./handlers/eventHandler");
 
 require("dotenv").config();
 
