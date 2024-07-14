@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const { ChatInputCommandInteraction, Client, PermissionsBitField } = require("discord.js");
-const { sendTranslated } = require("../../Functions/translate");
+const { sendTranslated } = require("../../functions/translate");
 
 var timeout = new Set();
 

@@ -1,5 +1,5 @@
 const translate = require("translate-google");
-const subscribe = require("../Schemas/subscribeSchema");
+const subscribe = require("../modals/subscribeSchema");
 
 async function sendTranslated(text, guildId) {
   if (!guildId) throw new Error("Gulid ID required!");

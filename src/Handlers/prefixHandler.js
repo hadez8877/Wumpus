@@ -1,11 +1,11 @@
 async function loadPrefixs(client) {
-  const { loadFiles } = require("../Functions/fileLoader");
+  const { loadFiles } = require("../functions/fileLoader");
   const ascii = require("ascii-table");
   const table = new ascii().setHeading("Commands", "Status");
 
   await client.prefixs.clear();
 
-  const Files = await loadFiles("src/CommandsPrefix");
+  const Files = await loadFiles("src/commandsPrefix");
 
   Files.forEach((file) => {
     const prefixs = require(file);

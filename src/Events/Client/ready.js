@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 const { Client, ActivityType } = require("discord.js");
-const { loadCommands } = require("../../Handlers/commandHandler");
-const { loadPrefixs } = require("../../Handlers/prefixHandler");
+const { loadCommands } = require("../../handlers/commandHandler");
+const { loadPrefixs } = require("../../handlers/prefixHandler");
 const mongoose = require("mongoose");
+
 require("dotenv").config();
 
 module.exports = {

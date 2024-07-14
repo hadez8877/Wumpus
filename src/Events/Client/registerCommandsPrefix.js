@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const { Message, Client, PermissionsBitField } = require("discord.js");
-const subscribe = require("../../Schemas/subscribeSchema");
-const { sendTranslated } = require("../../Functions/translate");
+const subscribe = require("../../modals/subscribeSchema");
+const { sendTranslated } = require("../../functions/translate");
 const { execute } = require("./ready");
 
 var timeout = new Set();

@@ -1,11 +1,11 @@
 async function loadEvents(client) {
-  const { loadFiles } = require("../Functions/fileLoader");
+  const { loadFiles } = require("../functions/fileLoader");
   const ascii = require("ascii-table");
   const table = new ascii().setHeading("Event", "Status");
 
   await client.events.clear();
 
-  const Files = await loadFiles("src/Events");
+  const Files = await loadFiles("src/events");
 
   Files.forEach((file) => {
     const event = require(file);

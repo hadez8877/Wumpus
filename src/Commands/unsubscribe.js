@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const { ChatInputCommandInteraction, Client, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require("discord.js");
 const { models } = require("mongoose");
-const { sendTranslated } = require("../Functions/translate");
+const { sendTranslated } = require("../functions/translate");
 
 module.exports = {
   data: new SlashCommandBuilder()
