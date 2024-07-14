@@ -19,7 +19,7 @@ describe("Bot Tests", async () => {
     client.commands = new Collection();
     client.prefixs = new Collection();
 
-    const result = typeof loadEvents(client);
+    const result = typeof await loadEvents(client);
 
     expect(typeof result).toBe("string");
   });
@@ -30,7 +30,7 @@ describe("Bot Tests", async () => {
       client.login(process.env.TOKENTEST);
     });
 
-    client.login(process.env.TOKENTEST);
+    await client.login(process.env.TOKENTEST);
 
     expect(client.isReady()).toBe(true);
   });
