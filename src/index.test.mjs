@@ -28,9 +28,7 @@ describe("Bot Tests", async () => {
     await new Promise((resolve) => {
       client.once("ready", resolve);
       client.login(process.env.TOKENTEST);
-    });
-
-    await client.login(process.env.TOKENTEST);
+    }, 60000);
 
     expect(client.isReady()).toBe(true);
   });
