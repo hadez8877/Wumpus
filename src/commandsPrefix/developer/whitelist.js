@@ -16,33 +16,35 @@ module.exports = {
      * @param {Client} client 
      */
     async execute(message, args, client) {
+        const m = await message.reply({ content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated("Espere un momento...", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+
         const sub = args[0];
         const guild = await client.guilds.fetch(args[1]).catch(async () => {
-            return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El ID del servidor no existe, es incorrecta o no estoy ahí.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+            return await m.edit({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El ID del servidor no existe, es incorrecta o no estoy ahí.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
         });
 
         var data = await whitelist.findOne({ Guild: guild.id });
 
         switch (sub) {
             case 'add':
-                if (data) return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El servidor ya ha sido ingresado.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+                if (data) return await m.edit({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El servidor ya ha sido ingresado.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
                 else {
                     await whitelist.create({
                         Guild: guild.id
                     });
 
-                    return await message.reply({ content: `<:UtilityApplication:1234642323732697099> ${await sendTranslated("El servidor se ha agregado exitosamente.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+                    return await m.edit({ content: `<:UtilityApplication:1234642323732697099> ${await sendTranslated("El servidor se ha agregado exitosamente.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
                 }
                 break;
 
             case 'remove':
-                if (!data) return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El servidor que ha ingresado no está en la lista blanca.")}`, allowedMentions: { repliedUser: false } });
+                if (!data) return await m.edit({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("El servidor que ha ingresado no está en la lista blanca.")}`, allowedMentions: { repliedUser: false } });
                 else {
                     await whitelist.findOneAndDelete({
                         Guild: guild.id
                     });
 
-                    return await message.reply({ content: `<:UtilityDeleteMessage:1234642331420983326> ${await sendTranslated("El servidor ha sido removido exitosamente.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+                    return await m.edit({ content: `<:UtilityDeleteMessage:1234642331420983326> ${await sendTranslated("El servidor ha sido removido exitosamente.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
                 }
                 break;
 
@@ -60,9 +62,9 @@ module.exports = {
                 }
 
                 if (values.length > 0) {
-                    return await message.reply({ content: `<:UtilityApplication:1234642323732697099> ${await sendTranslated("**Servidores Permitidos**:", message.guild.id)}\n\n${values.join('\n\n')}`, allowedMentions: { repliedUser: false } });
+                    return await m.edit({ content: `<:UtilityApplication:1234642323732697099> ${await sendTranslated("**Servidores Permitidos**:", message.guild.id)}\n\n${values.join('\n\n')}`, allowedMentions: { repliedUser: false } });
                 } else {
-                    return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("No hay servidores en la lista blanca.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+                    return await m.edit({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("No hay servidores en la lista blanca.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
                 }
             break;
         }
