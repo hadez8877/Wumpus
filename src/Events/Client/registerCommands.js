@@ -1,51 +1,60 @@
-const { ChatInputCommandInteraction, Client, PermissionsBitField } = require("discord.js");
-const { sendTranslated } = require("../../functions/translate");
+const { Message, Client, PermissionsBitField } = require("discord.js");
 const whitelist = require("../../modals/whitelistSchema");
 
 var timeout = new Set();
 
 module.exports = {
-  name: "interactionCreate",
+  name: "messageCreate",
+  once: false,
   /**
    *
-   * @param {ChatInputCommandInteraction} interaction
+   * @param {Message} message
    * @param {Client} client
    */
-  execute: async (interaction, client) => {
-    await interaction.deferReply({ ephemeral: true });
+  async execute(message, client) {
+    const prefix = "s!";
 
-    if (!interaction.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.SendMessages)) return;
+    const developers = ["1173072980000112671"];
 
-    var serverInWhitelist = await whitelist.findOne({ Guild: interaction.guild.id });
-    if (!serverInWhitelist) return;
+    if (!message.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.SendMessages)) return;
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!data) return;
 
-    const command = await client.commands.get(interaction.commandName);
+    var data = await whitelist.findOne({ Guild: message.guild.id });
+    if (!data) return;
 
-    if (!command) return await interaction.editReply({ content: `<:UtilityMessageWarn:1234642338333196452> ${await sendTranslated("Este comando está desactualizado.", interaction.guild.id)}`, ephemeral: true });
+    const args = message.content.slice(prefix.length).split(/ +/g);
+    const command = args.shift().toLowerCase();
+    const cmd = client.prefixs.get(command) || client.prefixs.find((cmd) => cmd.aliases && cmd.aliases.includes(command));
+
+    if (!cmd) return await message.reply({ content: "<:WumpusCleaning:1234249326033637407> ¡Ups! El comando que has ejecutado no existe.", allowedMentions: { repliedUser: false } });
+
+    // commands only for developers
+    if (cmd.developer && !developers.includes(message.member.id)) return await message.reply({ content: "<:BadgeSlashCommands:1234642175116054608> Este comando solo puede ser utilizado por el creador de Wumpus.", allowedMentions: { repliedUser: false } });
 
     // cooldown
-    if (command.cooldown) {
-      const cooldown = command.cooldown * 1000;
+    if (cmd.cooldown) {
+      const cooldown = cmd.cooldown * 1000;
 
-      if (timeout.has(interaction.user.id)) return await interaction.editReply({ content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated(`Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, interaction.guild.id)}`, ephemeral: true });
+      if (timeout.has(message.member.id)) return await message.reply({ content: `<a:AnimatedLoaded:1257177494310752266> Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, allowedMentions: { repliedUser: false } });
 
-      timeout.add(interaction.user.id);
+      timeout.add(message.member.id);
 
-      setTimeout(async () => {
-        await timeout.delete(interaction.user.id);
+      setTimeout(() => {
+        timeout.delete(message.member.id);
       }, cooldown);
     }
 
     // administrator permission
-    if (command.admin) {
-      if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await interaction.editReply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("No tienes los permisos suficientes para usar este comando.", interaction.guild.id)}`, ephemeral: true });
+    if (cmd.admin) {
+      if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await message.reply({ content: "<:UtilityMessageInteractionWarn:1234642336580108298> No tienes los permisos suficientes para usar este comando.", allowedMentions: { repliedUser: false } });
     }
 
     try {
-      await command.execute(interaction, client);
+      await cmd.execute(message, args, client);
     } catch (err) {
       console.error(err);
-      return await interaction.editReply({ content: `<:WumpusCry:1234249327241592873> ${await sendTranslated("¡Hubo un error al ejecutar este comando!", interaction.guild.id)}\n\`\`\`${err}\`\`\``, ephemeral: true });
+      return await message.reply({ content: `<:WumpusCry:1234249327241592873> ¡Hubo un error al ejecutar este comando!\n\`\`\`${err}\`\`\``, allowedMentions: { repliedUser: false } });
     }
   }
 };

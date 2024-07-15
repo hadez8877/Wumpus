@@ -12,7 +12,6 @@ const client = new Client({
 });
 
 client.events = new Collection();
-client.commands = new Collection();
 client.prefixs = new Collection();
 
 loadEvents(client);

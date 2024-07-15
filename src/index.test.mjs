@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 import { loadEvents } from "./handlers/eventHandler";
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, beforeAll, afterAll } from "vitest";
 
 require("dotenv").config();
 
@@ -13,24 +13,28 @@ const client = new Client({
   partials: [User, Message, GuildMember, ThreadMember]
 });
 
-describe("Bot Tests", async () => {
-  test("The bot must be started events", async () => {
-    client.events = new Collection();
-    client.commands = new Collection();
-    client.prefixs = new Collection();
+beforeAll(async () => {
+  client.events = new Collection();
+  client.prefixs = new Collection();
 
-    const result = typeof await loadEvents(client);
+  const result = typeof await loadEvents(client);
 
-    expect(typeof result).toBe("string");
+  expect(typeof result).toBe("string");
+
+  await new Promise((resolve, reject) => {
+    client.once("ready", resolve);
+    client.once("error", reject);
+
+    client.login(process.env.TOKENTEST).catch(reject);
   });
+});
 
-  test("The bot should be started", async () => {
-    // eslint-disable-next-line no-async-promise-executor
-    await new Promise(async (resolve) => {
-      client.once("ready", resolve);
-      await client.login(process.env.TOKENTEST);
-    }, 60000);
+afterAll(async () => {
+  await client.destroy();
+});
 
+describe("Bot Tests", () => {
+  test("The bot should be started", () => {
     expect(client.isReady()).toBe(true);
   });
 });

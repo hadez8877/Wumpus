@@ -1,5 +1,4 @@
 const { Client, ActivityType } = require("discord.js");
-const { loadCommands } = require("../../handlers/commandHandler");
 const { loadPrefixs } = require("../../handlers/prefixHandler");
 const mongoose = require("mongoose");
 
