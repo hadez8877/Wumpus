@@ -16,7 +16,7 @@ export default [
       "no-unused-vars": "off",
       "eqeqeq": "error",
       "no-var": "off",
-      "prefer-const": "warn",
+      "prefer-const": "off",
       "no-unreachable": "off"
     }
   },
