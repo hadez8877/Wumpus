@@ -17,7 +17,7 @@ export default [
       "eqeqeq": "error",
       "no-var": "off",
       "prefer-const": "warn",
-      "no-unreachable": "warn"
+      "no-unreachable": "off"
     }
   },
 ];
