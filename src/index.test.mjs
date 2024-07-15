@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
 import { loadEvents } from "./handlers/eventHandler";
 import { describe, test, expect, beforeAll, afterAll } from "vitest";
