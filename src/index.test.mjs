@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
-import { loadEvents } from "./handlers/eventHandler";
+import { loadEvents } from "../src/handlers/eventHandler";
 import { describe, test, expect, beforeAll, afterAll } from "vitest";
 
 require("dotenv").config();
