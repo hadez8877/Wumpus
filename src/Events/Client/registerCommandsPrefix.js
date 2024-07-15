@@ -1,7 +1,8 @@
 const { Message, Client, PermissionsBitField } = require("discord.js");
-const subscribe = require("../../modals/subscribeSchema");
 const { sendTranslated } = require("../../functions/translate");
 const { execute } = require("./ready");
+const subscribe = require("../../modals/subscribeSchema");
+const whitelist = require("../../modals/whitelistSchema");
 
 var timeout = new Set();
 
@@ -23,6 +24,9 @@ module.exports = {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     if (!data) return;
 
+    var serverInWhitelist = await whitelist.findOne({ Guild: message.guild.id });
+    if (!serverInWhitelist) return;
+
     const args = message.content.slice(prefix.length).split(/ +/g);
     const command = args.shift().toLowerCase();
     const cmd = client.prefixs.get(command) || client.prefixs.find((cmd) => cmd.aliases && cmd.aliases.includes(command));
@@ -36,11 +40,7 @@ module.exports = {
     if (cmd.cooldown) {
       const cooldown = command.cooldown * 1000;
 
-      if (timeout.has(message.member.id))
-        return await message.reply({
-          content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated(`Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, message.guild.id)}`,
-          allowedMentions: { repliedUser: false }
-        });
+      if (timeout.has(message.member.id)) return await message.reply({ content: `<a:AnimatedLoaded:1257177494310752266> ${await sendTranslated(`Por favor, espera <t:${Math.floor(Date.now() / 1000 + cooldown / 1000)}:R> para volver a usar este comando.`, message.guild.id)}`, allowedMentions: { repliedUser: false } });
 
       timeout.add(message.member.id);
 
@@ -51,8 +51,7 @@ module.exports = {
 
     // administrator permission
     if (cmd.admin) {
-      if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator))
-        return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("No tienes los permisos suficientes para usar este comando.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+      if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await message.reply({ content: `<:UtilityMessageInteractionWarn:1234642336580108298> ${await sendTranslated("No tienes los permisos suficientes para usar este comando.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
     }
 
     try {

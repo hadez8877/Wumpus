@@ -1,5 +1,6 @@
 const { ChatInputCommandInteraction, Client, PermissionsBitField } = require("discord.js");
 const { sendTranslated } = require("../../functions/translate");
+const whitelist = require("../../modals/whitelistSchema");
 
 var timeout = new Set();
 
@@ -13,8 +14,10 @@ module.exports = {
   execute: async (interaction, client) => {
     await interaction.deferReply({ ephemeral: true });
 
-    if (interaction.guild.id !== "1232079004677443604" && interaction.guild.id !== "1232762906630684723") return;
     if (!interaction.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.SendMessages)) return;
+
+    var serverInWhitelist = await whitelist.findOne({ Guild: interaction.guild.id });
+    if (!serverInWhitelist) return;
 
     const command = await client.commands.get(interaction.commandName);
 
