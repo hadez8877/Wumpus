@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { Message, Client, PermissionsBitField } = require("discord.js");
 const subscribe = require("../../modals/subscribeSchema");
 const { sendTranslated } = require("../../functions/translate");
@@ -31,7 +30,7 @@ module.exports = {
     if (!cmd) return await message.reply({ content: `<:WumpusCleaning:1234249326033637407> ${await sendTranslated("¡Ups! El comando que has ejecutado no existe.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
 
     // commands only for developers
-    if (cmd.developer && developers.includes(message.member.id)) return await message.reply({ content: `<:BadgeSlashCommands:1234642175116054608> ${await sendTranslated("Este comando solo puede ser utilizado por el creador de Wumpus.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
+    if (cmd.developer && !developers.includes(message.member.id)) return await message.reply({ content: `<:BadgeSlashCommands:1234642175116054608> ${await sendTranslated("Este comando solo puede ser utilizado por el creador de Wumpus.", message.guild.id)}`, allowedMentions: { repliedUser: false } });
 
     // cooldown
     if (cmd.cooldown) {

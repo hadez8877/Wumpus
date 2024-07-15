@@ -9,7 +9,10 @@ async function sendTranslated(text, guildId) {
 
   const result = await translate(text, { to: language });
 
-  return result;
+  if (language === "es") return text;
+  else {
+    return result;
+  }
 }
 
 module.exports = { sendTranslated };

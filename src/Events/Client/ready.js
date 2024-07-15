@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { Client, ActivityType } = require("discord.js");
 const { loadCommands } = require("../../handlers/commandHandler");
 const { loadPrefixs } = require("../../handlers/prefixHandler");
