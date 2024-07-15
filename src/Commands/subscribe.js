@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } = require("discord.js");
 const { sendTranslated } = require("../functions/translate");
 const subscribe = require("../modals/subscribeSchema");

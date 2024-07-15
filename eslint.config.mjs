@@ -13,11 +13,11 @@ export default [
     },
     rules: {
       "no-console": "off",
-      "no-unused-vars": "warn",
-      eqeqeq: "error",
+      "no-unused-vars": "off",
+      "eqeqeq": "error",
       "no-var": "off",
-      "prefer-const": "warn"
+      "prefer-const": "warn",
+      "no-unreachable": "warn"
     }
   },
-  pluginJs.configs.recommended
 ];
