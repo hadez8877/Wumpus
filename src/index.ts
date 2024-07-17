@@ -1,5 +1,5 @@
-import { Message, PermissionsBitField, ChannelType } from 'discord.js';
-import WumpusClient from './lib/WumpusClient';
+import { Message, PermissionsBitField, ChannelType } from "discord.js";
+import WumpusClient from "./lib/WumpusClient";
 
 const client = new WumpusClient();
 
@@ -27,3 +27,5 @@ client.on('messageCreate', async (message: Message) => {
     console.error(error)
   }
 });
+
+client.login(process.env.TOKEN);

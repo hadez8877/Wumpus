@@ -3,7 +3,7 @@
     "target": "esnext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "module": "commonjs",
+    "module": "CommonJS",
     "rootDir": "./src",
     "baseUrl": "./",
     "outDir": "./dist",

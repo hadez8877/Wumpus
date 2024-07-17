@@ -14,13 +14,7 @@ class WumpusClient extends Client {
     this.commandHandler = new CommandHandler(this);
     this.start();
 
-    this.once('ready', () => {
-      console.log("Bot is ready!");
-    });
-
-    if (!this.user) return;
-
-    this.user.setPresence({
+    this.user?.setPresence({
       activities: [
         {
           name: "I dont work! (really).",
@@ -28,12 +22,15 @@ class WumpusClient extends Client {
         }
       ]
     });
+
+    this.once('ready', () => {
+      console.log("\n\n🥳 Bot is ready!");
+    });
   }
 
   async start() {
     try {
       this.commandHandler.loadAll();
-      await this.login(process.env.TOKEN);
     } catch (error) {
       console.error(error);
       process.exit(1);
