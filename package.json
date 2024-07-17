@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "build": "tsc",
     "start": "ts-node-dev .",
     "test": "vitest"
   },
@@ -16,7 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "20.14.10",
-    "ts-node-dev": "^2.0.0",
+    "ts-node-dev": "2.0.0",
     "typescript": "5.5.3",
     "vitest": "2.0.3"
   }
