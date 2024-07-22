@@ -1,11 +1,12 @@
-import { Collection } from 'discord.js';
-import { readdirSync } from 'fs';
-import Command from './Command';
-import src from '../../utils/src';
-import BaseHandler from '../BaseHandler';
-import WumpusBot from '../WumpusClient';
-import readline from 'readline';
-import kleur from 'kleur';
+import { Collection } from "discord.js";
+import labelType from "../../utils/labels";
+import { readdirSync } from "fs";
+import BaseHandler from "../BaseHandler";
+import Command from "./Command";
+import kleur from "kleur";
+import readline from "readline";
+import src from "../../utils/src";
+import WumpusBot from "../WumpusClient";
 
 class CommandHandler extends BaseHandler {
   client: WumpusBot;
@@ -40,13 +41,16 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        console.error(`Error loading command from file ${kleur.bold().blue(`${file}`)}:`, err);
+        return console.error(`${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
       }
 
       this.commandsStatus();
     }
 
-    this.commandsStatus();
+    readline.cursorTo(process.stdout as any, 0);
+    readline.clearLine(process.stdout as any, 0);
+
+    process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Commands loaded!\n")}`);
   }
 
   private commandsStatus() {
