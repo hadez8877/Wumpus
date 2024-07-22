@@ -1,9 +1,13 @@
-import { ActivityType, Client, GatewayIntentBits, Partials } from "discord.js";
-import CommandHandler from "./commands/CommandHandler";
+import { Client, GatewayIntentBits, Partials } from "discord.js";
+import CommandHandler from "../lib/commands/CommandHandler";
+import EventHandler from "../lib/events/EventHandler";
+import { stdin } from "process";
+
 import "dotenv/config";
 
 class WumpusClient extends Client {
   commandHandler: CommandHandler;
+  eventHandler: EventHandler;
 
   constructor() {
     super({
@@ -12,30 +16,27 @@ class WumpusClient extends Client {
     });
 
     this.commandHandler = new CommandHandler(this);
-    this.start();
-
-    this.user?.setPresence({
-      activities: [
-        {
-          name: "I dont work! (really).",
-          type: ActivityType.Custom
-        }
-      ]
-    });
+    this.eventHandler = new EventHandler(this);
 
     this.once('ready', () => {
-      console.log("\n\n🥳 Bot is ready!");
+      this.readTerminal();
     });
   }
 
-  async start() {
-    try {
-      this.commandHandler.loadAll();
-    } catch (error) {
-      console.error(error);
-      process.exit(1);
-    }
+  readTerminal() {
+    stdin.setEncoding('utf-8');
+    stdin.setRawMode(true);
+
+    stdin.on('data', (key: Buffer | string) => {
+      switch (key) {
+        case 's':
+          this.destroy();
+
+          process.exit(0);
+        break;
+      }
+    });
   }
-}
+};
 
 export default WumpusClient;
