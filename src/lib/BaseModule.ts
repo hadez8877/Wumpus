@@ -1,7 +1,9 @@
 import BaseHandler from "./BaseHandler"
 import WumpusClient from "./WumpusClient";
+
 export interface BaseModuleData {
-  category?: string
+  category?: string,
+  once?: boolean
 }
 class BaseModule {
   id!: string
