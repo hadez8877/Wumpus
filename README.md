@@ -1,4 +1,4 @@
-![Banner](./public/images/ReadmeBanner)
+![Banner](./public/images/ReadmeBanner.png)
 
 <div align="center">
   
