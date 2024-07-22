@@ -1,4 +1,4 @@
-![Banner](./public/images/wumpusBanner.png)
+![Banner](./public/images/ReadmeBanner)
 
 <div align="center">
   
@@ -50,11 +50,14 @@ git clone git@github.com:your_username/Wumpus.git
 2. Install dependencies:
 
 ```bash
+# Install pnpm
+npm install -g pnpm
+
 # Install the discord.js package the 14.15.1 version:
-npm install discord.js@14.15.3
+pnpm install discord.js@14.15.3
 
 # and install dependencies:
-npm install
+pnpm install
 ```
 
 3. Make the changes you want!
