@@ -41,7 +41,7 @@ This Discord moderation bot is designed to enhance server security while fosteri
 
 In order to install the project, you must follow these steps:
 
-1. [Fork](https://github.com/pheralb/Wumpus/fork) this repository and clone it locally:
+1. [Fork](https://github.com/hadez8877/Wumpus/fork) this repository and clone it locally:
 
 ```bash
 git clone git@github.com:your_username/Wumpus.git
@@ -53,7 +53,7 @@ git clone git@github.com:your_username/Wumpus.git
 # Install pnpm
 npm install -g pnpm
 
-# Install the discord.js package the 14.15.1 version:
+# Install the discord.js package the 14.15.3 version:
 pnpm install discord.js@14.15.3
 
 # and install dependencies:
@@ -64,7 +64,7 @@ pnpm install
 
 ## Contributing
 
-In order to contribute to Wumpus you must follow the steps in [Installation](#Installation). Then, fork the repository, create your feature branch, make your changes, and submit a pull request.
+In order to contribute to Wumpus you must follow the steps in [installation](#installation). Afterwards, you must make a PR on the [dev](https://github.com/hadez8877/Wumpus/tree/dev) branch, so that you can review your PR.
 
 But if you want to contribute in a simpler way, you can start this project from _Stackblitz_ using your GitHub account:
 
