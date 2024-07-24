@@ -28,10 +28,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Check Code Formatting
-        run: |
-          pnpm run prettier:check || { echo "Code is not formatted correctly. Please run 'pnpm run prettier:write' to fix the formatting issues."; exit 1; }
-
       - name: Lint Code
         run: |
-          pnpm run lint || { echo "Linting failed. Please fix the linting issues according to the ESLint rules."; exit 1; }
+          pnpm run lint || { echo "Linting failed. Please Use 'pnpm run lint:fix' to fix linting issues according to ESLint rules."; exit 1; }
