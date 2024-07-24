@@ -31,25 +31,25 @@ importers:
         specifier: 20.14.10
         version: 20.14.10
       '@typescript-eslint/eslint-plugin':
-        specifier: ^7.16.1
+        specifier: 7.16.1
         version: 7.16.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0)(typescript@5.5.3)
       '@typescript-eslint/parser':
-        specifier: ^7.16.1
+        specifier: 7.16.1
         version: 7.16.1(eslint@9.7.0)(typescript@5.5.3)
       eslint:
-        specifier: 9.x
+        specifier: 9.7.0
         version: 9.7.0
       eslint-config-standard:
-        specifier: ^17.1.0
+        specifier: 17.1.0
         version: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@9.7.0))(eslint@9.7.0)
       eslint-plugin-import:
-        specifier: ^2.29.1
+        specifier: 2.29.1
         version: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0)
       eslint-plugin-n:
-        specifier: ^17.9.0
+        specifier: 17.9.0
         version: 17.9.0(eslint@9.7.0)
       eslint-plugin-promise:
-        specifier: ^6.6.0
+        specifier: 6.6.0
         version: 6.6.0(eslint@9.7.0)
       globals:
         specifier: 15.8.0

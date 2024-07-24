@@ -7,7 +7,9 @@
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc",
     "start": "node .",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "keywords": [],
   "author": "Hadez",
@@ -24,7 +26,7 @@
     "@types/node": "20.14.10",
     "@typescript-eslint/eslint-plugin": "7.16.1",
     "@typescript-eslint/parser": "7.16.1",
-    "eslint": "9.x",
+    "eslint": "9.7.0",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-n": "17.9.0",
