@@ -64,7 +64,7 @@ pnpm install
 
 ## Contributing
 
-In order to contribute to Wumpus you must follow the steps in [installation](#installation). Afterwards, you must make a PR on the [dev](https://github.com/hadez8877/Wumpus/tree/dev) branch, so that you can review your PR.
+In order to contribute to Wumpus you must follow the steps in [installation](#installation). Afterwards, you must make a Pull Request on the [dev](https://github.com/hadez8877/Wumpus/tree/dev) branch, so that you can review your PR.
 
 But if you want to contribute in a simpler way, you can start this project from _Stackblitz_ using your GitHub account:
 
