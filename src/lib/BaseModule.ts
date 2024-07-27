@@ -1,5 +1,5 @@
 import BaseHandler from "./BaseHandler"
-import WumpusClient from "./WumpusClient";
+import WumpusClient from "./WumpusClient"
 
 export interface BaseModuleData {
   category?: string,
@@ -15,19 +15,19 @@ class BaseModule {
   constructor (id: string, {
     category = "default"
   }: BaseModuleData) {
-    this.id = id;
-    this.categoryID = category;
+    this.id = id
+    this.categoryID = category
   }
 
   reload () {
-    this.handler.reload(this.id);
+    this.handler.reload(this.id)
   }
 
   remove () {
-    this.handler.remove(this.id);
+    this.handler.remove(this.id)
   }
 
   toString () { return this.id };
 }
 
-export default BaseModule;
+export default BaseModule

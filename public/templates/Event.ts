@@ -1,11 +1,10 @@
-import { Events } from "discord.js";
-import Event from "../../src/lib/events/Event";
+import Event from "../../src/lib/events/Event"
 
 class NameEvent extends Event {
     constructor() {
         super("name", {
             once: false
-        });
+        })
     }
 
     async run(/* Event variables */) {
@@ -13,4 +12,4 @@ class NameEvent extends Event {
     }
 };
 
-export default NameEvent;
+export default NameEvent
