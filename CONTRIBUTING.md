@@ -1,4 +1,6 @@
-![Banner](./public/images/ContributingBanner.png)
+<div align="center">
+  <img src="./public/images/ContributingBanner.png" alt="Banner" width="650" />
+</div>
 
 # Contributing to Wumpus
 
