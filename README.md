@@ -80,6 +80,6 @@ But if you want to contribute in a simpler way, you can start this project from 
 
 ## License
 
-This project is available for free use. However, it is important to note that there are certain conditions that must be met in order to use it. These conditions are specified in the [License](https://github.com/hadez8877/Wumpus/?tab=MIT-1-ov-file). Please make sure you read and fully understand the terms and conditions before using the project. Compliance with these stipulations is mandatory for all users.
+This project is available for free use. However, it is important to note that there are certain conditions that must be met in order to use it. These conditions are specified in the [License](LICENSE.md). Please make sure you read and fully understand the terms and conditions before using the project. Compliance with these stipulations is mandatory for all users.
 
 The license file includes detailed information about the granted permissions, limitations, and user responsibilities. It is essential to follow all instructions to ensure correct and legal use of the project. If you have any questions about the terms, do not hesitate to contact the project author for further clarification.
