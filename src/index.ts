@@ -1,11 +1,19 @@
 import { ChannelType, Message, PermissionsBitField } from "discord.js"
 import WumpusClient from "./lib/WumpusClient"
 
+import whitelist from "./modals/whitelistSchema"
+
 const client = new WumpusClient()
 
+client.commandHandler.loadAll()
+client.eventHandler.loadAll()
 
 client.on("messageCreate", async (message: Message) => {
     if (message.author.bot) return
+
+    // eslint-disable-next-line no-var
+    var whitelistData = await whitelist.findOne({ Guild: message.guild?.id })
+    if (!whitelistData) return
 
     const prefix = "s!"
 
@@ -49,7 +57,4 @@ client.on("messageCreate", async (message: Message) => {
     command.run(message, args, client)
 })
 
-client.commandHandler.loadAll()
-client.eventHandler.loadAll();
-
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
