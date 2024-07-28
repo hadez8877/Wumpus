@@ -1,7 +1,7 @@
 import { ActivityType, Client, Events } from "discord.js"
-import Event from "../lib/events/Event"
+import Event from "../../lib/events/Event"
 import kleur from "kleur"
-import labelType from "../utils/labels"
+import labelType from "../../utils/labels"
 import mongoose from "mongoose"
 
 class ReadyEvent extends Event {
