@@ -2,7 +2,8 @@ import { Collection } from "discord.js"
 import Event from "./Event"
 import BaseHandler from "../BaseHandler"
 import WumpusBot from "../WumpusClient"
-import { readdirSync } from "fs"
+import { readdirSync, statSync } from "fs"
+import path from "path"
 import kleur from "kleur"
 import readline from "readline"
 import src from "../../utils/src"
@@ -16,7 +17,7 @@ class EventHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("events")
+      path: src("events"),
     })
 
     this.client = client
@@ -26,13 +27,11 @@ class EventHandler extends BaseHandler {
   }
 
   async loadAll() {
-    const eventFiles = readdirSync(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"))
-
-    this.eventsStatus()
+    const eventFiles = this.getAllFiles(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"))
 
     for (const file of eventFiles) {
       try {
-        const eventModule = await import(`${this.path}/${file}`)
+        const eventModule = await import(file)
         const event: Event = new eventModule.default()
 
         if (event.once) {
@@ -42,24 +41,37 @@ class EventHandler extends BaseHandler {
         }
 
         this.modules.set(event.id, event)
-
         this.eventsLoaded++
       } catch (err) {
         this.errorsFound++
-
-        return console.error(`${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err)
+        console.error(`${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err)
       }
 
-      this.eventsStatus()
+      this.updateEventsStatus()
     }
 
     readline.cursorTo(process.stdout as any, 0)
     readline.clearLine(process.stdout as any, 0)
 
-    process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Events loaded!")}`)
+    process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Events loaded!\n")}`)
   }
 
-  private eventsStatus() {
+  private getAllFiles(dir: string, files: string[] = []): string[] {
+    const entries = readdirSync(dir)
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry)
+      if (statSync(fullPath).isDirectory()) {
+        this.getAllFiles(fullPath, files)
+      } else {
+        files.push(fullPath)
+      }
+    }
+
+    return files
+  }
+
+  private updateEventsStatus() {
     readline.cursorTo(process.stdout as any, 0)
     readline.clearLine(process.stdout as any, 0)
 

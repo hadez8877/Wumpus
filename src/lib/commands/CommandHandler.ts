@@ -1,6 +1,7 @@
 import { Collection } from "discord.js"
 import labelType from "../../utils/labels"
-import { readdirSync } from "fs"
+import { readdirSync, statSync } from "fs"
+import path from "path"
 import BaseHandler from "../BaseHandler"
 import Command from "./Command"
 import kleur from "kleur"
@@ -16,7 +17,7 @@ class CommandHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("commands")
+      path: src("commands"),
     })
 
     this.client = client
@@ -26,13 +27,13 @@ class CommandHandler extends BaseHandler {
   }
 
   async loadAll() {
-    const commandFiles = readdirSync(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"))
+    const commandFiles = this.getAllFiles(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"))
 
     this.commandsStatus()
 
     for (const file of commandFiles) {
       try {
-        const commandModule = await import(`${this.path}/${file}`)
+        const commandModule = await import(file)
         const command: Command = new commandModule.default()
 
         this.modules.set(command.id, command)
@@ -41,7 +42,7 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++
 
-        return console.error(`${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err)
+        console.error(`${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err)
       }
 
       this.commandsStatus()
@@ -51,6 +52,21 @@ class CommandHandler extends BaseHandler {
     readline.clearLine(process.stdout as any, 0)
 
     process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Commands loaded!\n")}`)
+  }
+
+  private getAllFiles(dir: string, files: string[] = []): string[] {
+    const entries = readdirSync(dir)
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry)
+      if (statSync(fullPath).isDirectory()) {
+        this.getAllFiles(fullPath, files)
+      } else {
+        files.push(fullPath)
+      }
+    }
+
+    return files
   }
 
   private commandsStatus() {
