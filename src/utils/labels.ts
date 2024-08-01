@@ -1,4 +1,4 @@
-import kleur from "kleur"
+import kleur from "kleur";
 
 const labelType = {
     ERROR: `${kleur.bgRed().bold(" ERROR ")}`,
@@ -7,6 +7,6 @@ const labelType = {
     ONLINE: `${kleur.bgBlue().bold(" ONLINE ")}`,
     OFFLINE: `${kleur.bgRed().bold(" OFFLINE ")}`,
     DEV: `${kleur.bgMagenta().bold(" DEV ")}`
-}
+};
 
-export default labelType
+export default labelType;

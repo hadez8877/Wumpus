@@ -1,4 +1,4 @@
-process.env.ESLINT_TSCONFIG = "tsconfig.json"
+process.env.ESLINT_TSCONFIG = "tsconfig.json";
 
 /**
  * @type {import("eslint").Linter.Config}
@@ -31,7 +31,7 @@ module.exports = {
         "eol-last": "off",
         "jsx-quotes": ["warn", "prefer-double"],
         "quotes": ["warn", "double"],
-        "semi": ["warn", "never"],
+        "semi": ["warn", "always"],
         "no-constant-binary-expression": "warn",
         "no-debugger": "warn",
         "no-extend-native": "off",
@@ -54,4 +54,4 @@ module.exports = {
         "array-element-newline": ["warn", "consistent"],
         "array-bracket-newline": ["warn", "consistent"],
     },
-}
+};

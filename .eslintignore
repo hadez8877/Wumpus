@@ -1,4 +1,10 @@
+# Ignore unnecessary folders
 node_modules/
 dist/
-*.test.js
-*.test.ts
+
+# Ignore pnpm lock file
+pnpm-lock.yaml
+
+# Ignore TypeScript test files
+**/*.test.ts
+**/*.spec.ts
