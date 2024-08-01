@@ -19,9 +19,9 @@ class ReadyEvent extends Event {
             }],
         });
 
-        if (process.env.MONGOURL) {
+        if (process.env.DB_PORT) {
             try {
-                await mongoose.connect(process.env.MONGOURL);
+                await mongoose.connect(process.env.DB_PORT);
             } catch (err) {
                 console.error(`${labelType.ERROR} Error connecting to database:`, err);
             }

@@ -3,6 +3,8 @@ import WumpusClient from "./lib/WumpusClient";
 
 import whitelist from "./modals/whitelistSchema";
 
+import "dotenv/config";
+
 const client = new WumpusClient();
 
 client.commandHandler.loadAll();
@@ -15,10 +17,12 @@ client.on("messageCreate", async (message: Message) => {
     var whitelistData = await whitelist.findOne({ Guild: message.guild?.id });
     if (!whitelistData) return;
 
-    const prefix = "s!";
+    const prefix = process.env.BOT_PREFIX;
 
     if (message.channel.type === ChannelType.GuildText) {
-        if (client.user && !message.channel.permissionsFor(client.user)?.has(PermissionsBitField.Flags.SendMessages)) return;
+        const bot = await client.users.fetch(process.env.CLIENT_ID);
+
+        if (bot && !message.channel.permissionsFor(bot)?.has(PermissionsBitField.Flags.SendMessages)) return;
     }
 
     if (!message.content.startsWith(prefix)) return;
@@ -57,4 +61,4 @@ client.on("messageCreate", async (message: Message) => {
     command.run(message, args, client);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.BOT_TOKEN);
