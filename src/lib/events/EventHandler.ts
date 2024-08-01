@@ -44,7 +44,8 @@ class EventHandler extends BaseHandler {
         this.eventsLoaded++;
       } catch (err) {
         this.errorsFound++;
-        console.error(`${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err);
+
+        console.error(`\n${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err);
       }
 
       this.updateEventsStatus();

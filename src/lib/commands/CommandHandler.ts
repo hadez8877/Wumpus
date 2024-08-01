@@ -42,7 +42,7 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        console.error(`${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
+        console.error(`\n${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
       }
 
       this.commandsStatus();
