@@ -1,6 +1,5 @@
-import { Message, PermissionsBitField, ChannelType } from "discord.js";
 import { describe, test, expect } from "vitest";
-import WumpusClient from "./lib/WumpusClient";
+import WumpusClient from "../lib/WumpusClient";
 import "dotenv/config";
 
 const client = new WumpusClient();
