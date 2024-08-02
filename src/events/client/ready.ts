@@ -1,8 +1,8 @@
 import { ActivityType, Client, Events } from "discord.js";
+import configDB from "../../db/config/configDB";
 import Event from "../../lib/events/Event";
 import kleur from "kleur";
 import labelType from "../../utils/labels";
-import mongoose from "mongoose";
 
 class ReadyEvent extends Event {
     constructor() {
@@ -19,13 +19,7 @@ class ReadyEvent extends Event {
             }],
         });
 
-        if (process.env.DB_PORT) {
-            try {
-                await mongoose.connect(process.env.DB_PORT);
-            } catch (err) {
-                console.error(`${labelType.ERROR} Error connecting to database:`, err);
-            }
-        }
+        await configDB();
 
         console.log(`\n\n${labelType.ONLINE} ${kleur.blue("Bot is ready!")}\n${kleur.gray("Press").padStart(labelType.ONLINE.length - 3)} ${kleur.white("s")} ${kleur.gray("to turn off the bot")}`);
     }

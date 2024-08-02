@@ -1,6 +1,6 @@
 import { Client, Message } from "discord.js";
 import Command from "../../lib/commands/Command";
-import whitelist from "../../modals/whitelistSchema";
+import whitelist from "src/db/whitelistSchema";
 
 class WhitelistCommand extends Command {
     constructor() {

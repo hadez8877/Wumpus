@@ -1,10 +1,10 @@
 import { Message, ChannelType, PermissionsBitField } from "discord.js";
-import DiscordAPIError from "./utils/errors/DiscordAPIError";
+import ClientError from "./utils/errors/ClientError";
 import WumpusClient from "./lib/WumpusClient";
 
 import "dotenv/config";
 
-import whitelist from "./modals/whitelistSchema";
+import whitelist from "./db/whitelistSchema";
 
 const client = new WumpusClient();
 
@@ -18,7 +18,7 @@ client.on("messageCreate", async (message: Message) => {
     var whitelistData = await whitelist.findOne({ Guild: message.guild?.id });
     if (!whitelistData) return;
 
-    const prefix = "s!";
+    const prefix = process.env.BOT_PREFIX ?? "!";
 
     if (message.channel.type === ChannelType.GuildText) {
         if (client.user && !message.channel.permissionsFor(client.user)?.has(PermissionsBitField.Flags.SendMessages)) return;
@@ -60,6 +60,6 @@ client.on("messageCreate", async (message: Message) => {
     command.run(message, args, client);
 });
 
-client.login(process.env.BOT_TOKEN).catch(err => {
-    throw new DiscordAPIError(err.message, err.code, 0);
+client.login(process.env.BOT_TOKEN).catch(_err => {
+    throw new ClientError(1001);
 });
