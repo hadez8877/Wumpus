@@ -16,7 +16,8 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "eslint-config-prettier"
+        "eslint-config-prettier",
+        "eslint-config-standard"
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
@@ -25,7 +26,8 @@ module.exports = {
     },
     plugins: [
         "@typescript-eslint",
-        "unused-imports"
+        "unused-imports",
+        "standbard"
     ],
     rules: {
         "eol-last": "off",
