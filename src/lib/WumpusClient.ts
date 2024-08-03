@@ -1,6 +1,6 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
-import CommandHandler from "../lib/commands/CommandHandler";
-import EventHandler from "../lib/events/EventHandler";
+import CommandHandler from "@/lib/commands/CommandHandler";
+import EventHandler from "@/lib/events/EventHandler";
 import { stdin } from "process";
 
 import "dotenv/config";

@@ -1,10 +1,10 @@
 import { Message, ChannelType, PermissionsBitField } from "discord.js";
-import ClientError from "./utils/errors/ClientError";
-import WumpusClient from "./lib/WumpusClient";
+import ClientError from "@/utils/errors/ClientError";
+import WumpusClient from "@/lib/WumpusClient";
 
 import "dotenv/config";
 
-import whitelist from "./db/whitelistSchema";
+import whitelist from "$/whitelistSchema";
 
 const client = new WumpusClient();
 

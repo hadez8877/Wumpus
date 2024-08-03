@@ -1,13 +1,13 @@
 import { Collection } from "discord.js";
-import labelType from "../../utils/labels";
+import labelType from "@/utils/labels";
 import { readdirSync, statSync } from "fs";
 import path from "path";
-import BaseHandler from "../BaseHandler";
-import Command from "./Command";
+import BaseHandler from "@/lib/BaseHandler";
+import Command from "@/lib/commands/Command";
 import kleur from "kleur";
 import readline from "readline";
-import src from "../../utils/src";
-import WumpusBot from "../WumpusClient";
+import src from "@/utils/src";
+import WumpusBot from "@/lib/WumpusClient";
 
 class CommandHandler extends BaseHandler {
   client: WumpusBot;

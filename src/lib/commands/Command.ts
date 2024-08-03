@@ -1,5 +1,5 @@
 import { Client, Message } from "discord.js";
-import BaseModule from "../BaseModule";
+import BaseModule from "@/lib/BaseModule";
 
 type permissionsType = "developer" | "owner" | "admin" | "mod" | "member";
 

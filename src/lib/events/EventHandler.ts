@@ -1,13 +1,13 @@
 import { Collection } from "discord.js";
-import Event from "./Event";
-import BaseHandler from "../BaseHandler";
-import WumpusBot from "../WumpusClient";
+import Event from "@/lib/events/Event";
+import BaseHandler from "@/lib/BaseHandler";
+import WumpusBot from "@/lib/WumpusClient";
 import { readdirSync, statSync } from "fs";
 import path from "path";
 import kleur from "kleur";
 import readline from "readline";
-import src from "../../utils/src";
-import labelType from "../../utils/labels";
+import src from "@/utils/src";
+import labelType from "@/utils/labels";
 
 class EventHandler extends BaseHandler {
   client: WumpusBot;

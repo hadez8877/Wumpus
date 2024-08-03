@@ -1,8 +1,8 @@
 import { ActivityType, Client, Events } from "discord.js";
-import configDB from "../../db/config/configDB";
-import Event from "../../lib/events/Event";
+import configDB from "$/config/configDB";
+import Event from "@/lib/events/Event";
 import kleur from "kleur";
-import labelType from "../../utils/labels";
+import labelType from "@/utils/labels";
 
 class ReadyEvent extends Event {
     constructor() {
