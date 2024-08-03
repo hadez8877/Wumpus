@@ -41,5 +41,8 @@
     "typescript": "5.5.3",
     "typescript-eslint": "7.16.1",
     "vitest": "2.0.3"
+  },
+  "eslintConfig": {
+    "extends":["standard"]
   }
 }
