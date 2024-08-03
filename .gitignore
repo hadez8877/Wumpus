@@ -8,6 +8,9 @@ node_modules/
 logs/
 *.log
 
+# Ignore .idea files
+*.idea
+
 # Build files
 dist/
 build/
