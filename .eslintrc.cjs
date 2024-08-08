@@ -32,7 +32,7 @@ module.exports = {
         "jsx-quotes": ["warn", "prefer-double"],
         "quotes": ["warn", "double"],
         "semi": ["error", "always"],
-        "no-constant-binary-expression": "warn",
+        "no-constant-binary-expression": "off",
         "no-debugger": "warn",
         "no-extend-native": "off",
         "no-trailing-spaces": "warn",
