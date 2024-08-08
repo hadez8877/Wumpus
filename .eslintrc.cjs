@@ -32,7 +32,7 @@ module.exports = {
         "eol-last": "off",
         "jsx-quotes": ["warn", "prefer-double"],
         "quotes": ["warn", "double"],
-        "semi": ["warn", "always"],
+        "semi": ["error", "always"],
         "no-constant-binary-expression": "warn",
         "no-debugger": "warn",
         "no-extend-native": "off",
