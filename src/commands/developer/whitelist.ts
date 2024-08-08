@@ -1,14 +1,14 @@
-import { Client, Message } from "discord.js";
-import Command from "@/lib/commands/Command";
-import whitelist from "db/whitelistSchema";
+import { Client, Message } from 'discord.js';
+import Command from '@/lib/commands/Command';
+import whitelist from 'db/whitelistSchema';
 
 class WhitelistCommand extends Command {
   constructor() {
-    super("whitelist", {
-      aliases: ["wl"],
-      description: "Agrega un servidor a la lista blanca.",
-      usage: "<sub> [guildId]",
-      permissionType: "developer",
+    super('whitelist', {
+      aliases: ['wl'],
+      description: 'Agrega un servidor a la lista blanca.',
+      usage: '<sub> [guildId]',
+      permissionType: 'developer',
     });
   }
 
@@ -17,7 +17,7 @@ class WhitelistCommand extends Command {
     const guild = await client.guilds.fetch(args[1]).catch(async () => {
       return await message.reply({
         content:
-          "<:UtilityMessageInteractionWarn:1234642336580108298> El ID del servidor no existe, es incorrecta o no estoy ahí.",
+          '<:UtilityMessageInteractionWarn:1234642336580108298> El ID del servidor no existe, es incorrecta o no estoy ahí.',
         allowedMentions: { repliedUser: false },
       });
     });
@@ -26,10 +26,10 @@ class WhitelistCommand extends Command {
     var data = await whitelist.findOne({ Guild: guild.id });
 
     switch (sub) {
-      case "add":
+      case 'add':
         if (data)
           return await message.reply({
-            content: "<:UtilityMessageInteractionWarn:1234642336580108298> El servidor ya ha sido ingresado.",
+            content: '<:UtilityMessageInteractionWarn:1234642336580108298> El servidor ya ha sido ingresado.',
             allowedMentions: { repliedUser: false },
           });
         else {
@@ -38,17 +38,17 @@ class WhitelistCommand extends Command {
           });
 
           return await message.reply({
-            content: "<:UtilityApplication:1234642323732697099> El servidor se ha agregado exitosamente.",
+            content: '<:UtilityApplication:1234642323732697099> El servidor se ha agregado exitosamente.',
             allowedMentions: { repliedUser: false },
           });
         }
         break;
 
-      case "remove":
+      case 'remove':
         if (!data)
           return await message.reply({
             content:
-              "<:UtilityMessageInteractionWarn:1234642336580108298> El servidor que ha ingresado no está en la lista blanca.",
+              '<:UtilityMessageInteractionWarn:1234642336580108298> El servidor que ha ingresado no está en la lista blanca.',
             allowedMentions: { repliedUser: false },
           });
         else {
@@ -57,13 +57,13 @@ class WhitelistCommand extends Command {
           });
 
           return await message.reply({
-            content: "<:UtilityDeleteMessage:1234642331420983326> El servidor ha sido removido exitosamente.",
+            content: '<:UtilityDeleteMessage:1234642331420983326> El servidor ha sido removido exitosamente.',
             allowedMentions: { repliedUser: false },
           });
         }
         break;
 
-      case "check":
+      case 'check':
         const dataAll = await whitelist.find();
         // eslint-disable-next-line no-var
         var values = [];
@@ -80,12 +80,12 @@ class WhitelistCommand extends Command {
 
         if (values.length > 0) {
           return await message.reply({
-            content: `<:UtilityApplication:1234642323732697099> **Servidores Permitidos**:\n\n${values.join("\n\n")}`,
+            content: `<:UtilityApplication:1234642323732697099> **Servidores Permitidos**:\n\n${values.join('\n\n')}`,
             allowedMentions: { repliedUser: false },
           });
         } else {
           return await message.reply({
-            content: "<:UtilityMessageInteractionWarn:1234642336580108298> No hay servidores en la lista blanca.",
+            content: '<:UtilityMessageInteractionWarn:1234642336580108298> No hay servidores en la lista blanca.',
             allowedMentions: { repliedUser: false },
           });
         }
@@ -93,7 +93,7 @@ class WhitelistCommand extends Command {
 
       default: {
         return await message.reply({
-          content: "<:UtilityMessageInteractionWarn:1234642336580108298> El subcomando ejecutado no existe.",
+          content: '<:UtilityMessageInteractionWarn:1234642336580108298> El subcomando ejecutado no existe.',
           allowedMentions: { repliedUser: false },
         });
       }

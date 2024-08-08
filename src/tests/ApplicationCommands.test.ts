@@ -1,14 +1,14 @@
-import { describe, it, expect, beforeAll } from "vitest";
-import WumpusClient from "@/lib/WumpusClient";
+import { describe, it, expect, beforeAll } from 'vitest';
+import WumpusClient from '@/lib/WumpusClient';
 
 const client = new WumpusClient();
 
-describe("Command Handler", () => {
+describe('Command Handler', () => {
   beforeAll(async () => {
     await client.commandHandler.loadAll();
   });
 
-  it("should load all commands without errors", () => {
+  it('should load all commands without errors', () => {
     const commands = client.commandHandler.modules;
 
     expect(commands.size).toBe(client.commandHandler.commandsLoaded);
@@ -16,7 +16,7 @@ describe("Command Handler", () => {
     expect(client.commandHandler.errorsFound).toBe(0);
   });
 
-  it("should verify command properties", () => {
+  it('should verify command properties', () => {
     const commands = client.commandHandler.modules;
 
     commands.forEach((command) => {

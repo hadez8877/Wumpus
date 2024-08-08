@@ -1,10 +1,10 @@
-import { Message } from "discord.js";
-import Command from "@/lib/commands/Command";
+import { Message } from 'discord.js';
+import Command from '@/lib/commands/Command';
 
 class PingCommand extends Command {
   constructor() {
-    super("ping", {
-      description: "Verifica el ping del bot.",
+    super('ping', {
+      description: 'Verifica el ping del bot.',
     });
   }
 

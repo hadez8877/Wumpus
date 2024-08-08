@@ -1,9 +1,9 @@
-import { Client, GatewayIntentBits, Partials } from "discord.js";
-import CommandHandler from "@/lib/commands/CommandHandler";
-import EventHandler from "@/lib/events/EventHandler";
-import { stdin } from "process";
+import { Client, GatewayIntentBits, Partials } from 'discord.js';
+import CommandHandler from '@/lib/commands/CommandHandler';
+import EventHandler from '@/lib/events/EventHandler';
+import { stdin } from 'process';
 
-import "dotenv/config";
+import 'dotenv/config';
 
 class WumpusClient extends Client {
   commandHandler: CommandHandler;
@@ -23,18 +23,18 @@ class WumpusClient extends Client {
     this.commandHandler = new CommandHandler(this);
     this.eventHandler = new EventHandler(this);
 
-    this.once("ready", () => {
+    this.once('ready', () => {
       this.readTerminal();
     });
   }
 
   readTerminal() {
-    stdin.setEncoding("utf-8");
+    stdin.setEncoding('utf-8');
     stdin.setRawMode(true);
 
-    stdin.on("data", (key: Buffer | string) => {
+    stdin.on('data', (key: Buffer | string) => {
       switch (key) {
-        case "s":
+        case 's':
           this.destroy();
 
           process.exit(0);

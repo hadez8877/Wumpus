@@ -1,13 +1,13 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-import "dotenv/config";
+import 'dotenv/config';
 
 const envType = z.object({
   CLIENT_ID: z.string().min(16),
   CLIENT_SECRET: z.string().length(32),
 
   BOT_TOKEN: z.string().min(50),
-  BOT_PREFIX: z.string().optional().default("!"),
+  BOT_PREFIX: z.string().optional().default('!'),
 
   DB_PORT: z.string().regex(/^mongodb\+srv:\/\/[^:]+:[^@]+@[^\\/]+\/\?[^\\/]+$/),
 });

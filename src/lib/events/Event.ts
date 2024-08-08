@@ -1,4 +1,4 @@
-import BaseModule from "@/lib/BaseModule";
+import BaseModule from '@/lib/BaseModule';
 
 interface EventData {
   once?: boolean;

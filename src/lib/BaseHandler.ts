@@ -1,9 +1,9 @@
-import { Collection } from "discord.js";
-import EventEmitter from "events";
-import { readdirSync, statSync } from "fs";
-import path from "path";
-import BaseModule from "@/lib/BaseModule";
-import WumpusBot from "@/lib/WumpusClient";
+import { Collection } from 'discord.js';
+import EventEmitter from 'events';
+import { readdirSync, statSync } from 'fs';
+import path from 'path';
+import BaseModule from '@/lib/BaseModule';
+import WumpusBot from '@/lib/WumpusClient';
 
 export interface BaseHandlerData {
   path: string;
@@ -25,7 +25,7 @@ class BaseHandler extends EventEmitter {
     mod.filepath = filepath;
     this.modules.set(mod.id, mod);
 
-    if (mod.categoryID !== "default") return;
+    if (mod.categoryID !== 'default') return;
     const dirs = path.dirname(filepath).split(path.sep);
     mod.categoryID = dirs[dirs.length - 1];
   }
@@ -36,7 +36,7 @@ class BaseHandler extends EventEmitter {
   }
 
   load(filepath: string, isReload: boolean = false) {
-    console.log("path", filepath);
+    console.log('path', filepath);
     let mod = require(filepath);
     mod = new mod();
 

@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-      
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
         with:
@@ -31,3 +31,7 @@ jobs:
       - name: Lint Code
         run: |
           pnpm run lint || { echo "Linting failed. Please Use 'pnpm run lint:fix' to fix linting issues according to ESLint rules."; exit 1; }
+
+      - name: Format Code
+        run: |
+          pnpm run format:check || { echo "Prettier check failed. Please use 'pnpm run format' to format the code."; exit 1; }
