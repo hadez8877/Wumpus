@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "module": "ESNext",
+    "target": "ESNext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "module": "CommonJS",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
