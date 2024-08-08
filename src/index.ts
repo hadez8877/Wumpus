@@ -5,6 +5,7 @@ import WumpusClient from "@/lib/WumpusClient";
 import "dotenv/config";
 
 import whitelist from "db/whitelistSchema";
+import CommandError from "./utils/errors/CommandError";
 
 const client = new WumpusClient();
 
@@ -68,9 +69,20 @@ client.on("messageCreate", async (message: Message) => {
       break;
   }
 
-  command.run(message, args, client);
+  try {
+    command.run(message, args, client);
+  } catch (err) {
+    if (err instanceof Error) throw new CommandError(2002, command.id, err);
+    else {
+      throw new CommandError(2002, command.id, "Unknown error occurred");
+    }
+  }
+
 });
 
 client.login(process.env.BOT_TOKEN).catch((err) => {
   if (err instanceof Error) throw new ClientError(1001, err);
+  else {
+    throw new ClientError(1001, "Unknown error occurred");
+  }
 });
