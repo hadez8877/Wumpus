@@ -12,8 +12,8 @@ import WumpusBot from "@/lib/WumpusClient";
 class CommandHandler extends BaseHandler {
   client: WumpusBot;
   modules: Collection<string, Command>;
-  private errorsFound: number;
-  private commandsLoaded: number;
+  errorsFound: number;
+  commandsLoaded: number;
 
   constructor(client: WumpusBot) {
     super(client, {
@@ -27,7 +27,7 @@ class CommandHandler extends BaseHandler {
   }
 
   async loadAll() {
-    const commandFiles = this.getAllFiles(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"));
+    const commandFiles = this.getAllFiles(this.path).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
 
     this.commandsStatus();
 
@@ -42,7 +42,10 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        console.error(`\n${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
+        return console.error(
+          `\n${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`,
+          err,
+        );
       }
 
       this.commandsStatus();
@@ -73,7 +76,9 @@ class CommandHandler extends BaseHandler {
     readline.cursorTo(process.stdout as any, 0);
     readline.clearLine(process.stdout as any, 0);
 
-    process.stdout.write(`${kleur.bold().blue(`${this.commandsLoaded} commands`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`);
+    process.stdout.write(
+      `${kleur.bold().blue(`${this.commandsLoaded} commands`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`,
+    );
   }
 }
 

@@ -12,8 +12,8 @@ import labelType from "@/utils/labels";
 class EventHandler extends BaseHandler {
   client: WumpusBot;
   modules: Collection<string, Event>;
-  private errorsFound: number;
-  private eventsLoaded: number;
+  errorsFound: number;
+  eventsLoaded: number;
 
   constructor(client: WumpusBot) {
     super(client, {
@@ -27,7 +27,7 @@ class EventHandler extends BaseHandler {
   }
 
   async loadAll() {
-    const eventFiles = this.getAllFiles(this.path).filter(file => file.endsWith(".ts") || file.endsWith(".js"));
+    const eventFiles = this.getAllFiles(this.path).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
 
     for (const file of eventFiles) {
       try {
@@ -45,7 +45,10 @@ class EventHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        console.error(`\n${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err);
+        return console.error(
+          `\n${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`,
+          err,
+        );
       }
 
       this.updateEventsStatus();
@@ -76,7 +79,9 @@ class EventHandler extends BaseHandler {
     readline.cursorTo(process.stdout as any, 0);
     readline.clearLine(process.stdout as any, 0);
 
-    process.stdout.write(`${kleur.bold().blue(`${this.eventsLoaded} events`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`);
+    process.stdout.write(
+      `${kleur.bold().blue(`${this.eventsLoaded} events`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`,
+    );
   }
 }
 

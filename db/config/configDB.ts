@@ -5,14 +5,15 @@ import mongoose from "mongoose";
 import "dotenv/config";
 
 async function configDB() {
-    if (!process.env.DB_PORT) return console.warn(`${labelType.WARNING} It is necessary to connect to a database, as certain commands do not work without it.`);
-    else {
-        try {
-            await mongoose.connect(process.env.DB_PORT);
-        } catch (err) {
-            throw new DBError(12002);
-        }
-    }
-};
+  if (!process.env.DB_PORT)
+    return console.warn(
+      `${labelType.WARNING} It is necessary to connect to a database, as certain commands do not work without it.`,
+    );
+  else {
+    await mongoose.connect(process.env.DB_PORT).catch((err) => {
+      if (err instanceof Error) throw new DBError(12002, err);
+    });
+  }
+}
 
 export default configDB;

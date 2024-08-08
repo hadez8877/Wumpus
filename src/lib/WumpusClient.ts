@@ -11,8 +11,13 @@ class WumpusClient extends Client {
 
   constructor() {
     super({
-      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
-      partials: [Partials.User, Partials.Message, Partials.GuildMember, Partials.ThreadMember]
+      intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+      ],
+      partials: [Partials.User, Partials.Message, Partials.GuildMember, Partials.ThreadMember],
     });
 
     this.commandHandler = new CommandHandler(this);
@@ -33,10 +38,10 @@ class WumpusClient extends Client {
           this.destroy();
 
           process.exit(0);
-        break;
+          break;
       }
     });
   }
-};
+}
 
 export default WumpusClient;

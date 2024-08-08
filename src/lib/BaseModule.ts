@@ -2,8 +2,8 @@ import BaseHandler from "@/lib/BaseHandler";
 import WumpusClient from "@/lib/WumpusClient";
 
 export interface BaseModuleData {
-  category?: string,
-  once?: boolean
+  category?: string;
+  once?: boolean;
 }
 class BaseModule {
   id!: string;
@@ -12,22 +12,22 @@ class BaseModule {
   client!: WumpusClient;
   handler!: BaseHandler;
   categoryID: string;
-  constructor (id: string, {
-    category = "default"
-  }: BaseModuleData) {
+  constructor(id: string, { category = "default" }: BaseModuleData) {
     this.id = id;
     this.categoryID = category;
   }
 
-  reload () {
+  reload() {
     this.handler.reload(this.id);
   }
 
-  remove () {
+  remove() {
     this.handler.remove(this.id);
   }
 
-  toString () { return this.id; };
+  toString() {
+    return this.id;
+  }
 }
 
 export default BaseModule;
