@@ -6,8 +6,7 @@
     "module": "CommonJS",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "$/*": ["./db/*"]
+      "@/*": ["src/*"]
     },
     "outDir": "./dist",
     "esModuleInterop": true,
@@ -15,5 +14,6 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "include": ["src", "db"],
   "exclude": ["node_modules", "dist", "vite.config.ts", "public"]
 }
