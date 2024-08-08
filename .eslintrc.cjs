@@ -25,8 +25,7 @@ module.exports = {
     },
     plugins: [
         "@typescript-eslint",
-        "unused-imports",
-        "standbard"
+        "unused-imports"
     ],
     rules: {
         "eol-last": "off",
