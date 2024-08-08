@@ -4,10 +4,3 @@ dist/
 
 # Ignore pnpm lock file
 pnpm-lock.yaml
-
-# Ignore TypeScript test files
-**/*.test.ts
-**/*.spec.ts
-
-# Ignore .idea files
-*.idea
