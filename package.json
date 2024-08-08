@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "🧩 Discord bot designed to provide advanced and highly customizable moderation.",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --require tsconfig-paths/register src/index.ts",
     "build": "tsc",
