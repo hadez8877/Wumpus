@@ -7,7 +7,7 @@ import labelType from "@/utils/labels";
 class ReadyEvent extends Event {
   constructor() {
     super(Events.ClientReady, {
-      once: true
+      once: true,
     });
   }
 

@@ -8,7 +8,7 @@ class WhitelistCommand extends Command {
       aliases: ["wl"],
       description: "Agrega un servidor a la lista blanca.",
       usage: "<sub> [guildId]",
-      permissionType: "developer"
+      permissionType: "developer",
     });
   }
 

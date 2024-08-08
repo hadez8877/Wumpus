@@ -77,7 +77,6 @@ client.on("messageCreate", async (message: Message) => {
       throw new CommandError(2002, command.id, "Unknown error occurred");
     }
   }
-
 });
 
 client.login(process.env.BOT_TOKEN).catch((err) => {

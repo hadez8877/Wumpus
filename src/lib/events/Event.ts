@@ -1,18 +1,18 @@
 import BaseModule from "@/lib/BaseModule";
 
 interface EventData {
-  once?: boolean
+  once?: boolean;
 }
 
 abstract class Event extends BaseModule {
   once?: boolean;
 
-    constructor(id: string, { once }: EventData) {
-      super(id, { once });
-      this.once = once || false;
-    }
+  constructor(id: string, { once }: EventData) {
+    super(id, { once });
+    this.once = once || false;
+  }
 
-    abstract run(...args: any[]): void;
+  abstract run(...args: any[]): void;
 }
 
 export default Event;

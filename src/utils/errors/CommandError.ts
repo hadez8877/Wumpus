@@ -10,31 +10,37 @@ class CommandError extends Error {
   error: NodeJS.ErrnoException | string | null;
 
   constructor(code: ErrorCodes, command: string, error: NodeJS.ErrnoException | string | null) {
-    var message: string;
+    let message: string;
 
     switch (code) {
       case 2001:
-        message = `${kleur.yellow("[2001]")} Invalid command. The command ${command} is not recognized:\n` + error ?? "Undefined error"
+        message =
+          `${kleur.yellow("[2001]")} Invalid command. The command ${command} is not recognized:\n` + error ??
+          "Undefined error";
         break;
       case 2002:
         message =
-          `${kleur.yellow("[2002]")} Command execution error. There was an issue executing the command ${command}:\n` + error ?? "Undefined error";
-          error;
+          `${kleur.yellow("[2002]")} Command execution error. There was an issue executing the command ${command}:\n` +
+            error ?? "Undefined error";
+        error;
         break;
       case 2003:
         message =
-          `${kleur.yellow("[2003]")} Invalid arguments. The arguments provided for command ${command} are incorrect:\n` + error ?? "Undefined error";
-          error;
+          `${kleur.yellow("[2003]")} Invalid arguments. The arguments provided for command ${command} are incorrect:\n` +
+            error ?? "Undefined error";
+        error;
         break;
       case 2004:
         message =
-          `${kleur.yellow("[2004]")} Missing permissions. You do not have permission to use the command ${command}:\n` + error ?? "Undefined error"
-          error;
+          `${kleur.yellow("[2004]")} Missing permissions. You do not have permission to use the command ${command}:\n` +
+            error ?? "Undefined error";
+        error;
         break;
       case 2005:
         message =
-          `${kleur.yellow("[2005]")} Command failed. The command ${command} failed due to an unexpected error:\n` + error ?? "Undefined error";
-          error;
+          `${kleur.yellow("[2005]")} Command failed. The command ${command} failed due to an unexpected error:\n` +
+            error ?? "Undefined error";
+        error;
         break;
       default: {
         message = `${labelType.ERROR} An unknown error occurred with command ${command}. Error Code: ${code}.`;

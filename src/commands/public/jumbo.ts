@@ -5,7 +5,7 @@ class JumboCommand extends Command {
   constructor() {
     super("jumbo", {
       description: "Convierte un emoji en uno más grande.",
-      usage: "<emoji>"
+      usage: "<emoji>",
     });
   }
 

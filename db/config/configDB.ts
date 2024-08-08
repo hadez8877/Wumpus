@@ -13,7 +13,7 @@ async function configDB() {
     await mongoose.connect(process.env.DB_PORT).catch((err) => {
       if (err instanceof Error) throw new DBError(12002, err);
       else {
-        throw new DBError(12002, "Unknown error occurred")
+        throw new DBError(12002, "Unknown error occurred");
       }
     });
   }

@@ -4,7 +4,7 @@ import Command from "@/lib/commands/Command";
 class PingCommand extends Command {
   constructor() {
     super("ping", {
-      description: "Verifica el ping del bot."
+      description: "Verifica el ping del bot.",
     });
   }
 
