@@ -1,8 +1,8 @@
-import { ActivityType, Client, Events } from 'discord.js';
-import configDB from 'db/config/configDB';
-import Event from '@/lib/events/Event';
-import kleur from 'kleur';
-import labelType from '@/utils/labels';
+import { ActivityType, Client, Events } from "discord.js";
+import configDB from "db/config/configDB";
+import Event from "@/lib/events/Event";
+import kleur from "kleur";
+import labelType from "@/utils/labels";
 
 class ReadyEvent extends Event {
   constructor() {
@@ -15,7 +15,7 @@ class ReadyEvent extends Event {
     client.user?.setPresence({
       activities: [
         {
-          name: 'I dont work! (really).',
+          name: "I dont work! (really).",
           type: ActivityType.Custom,
         },
       ],
@@ -24,7 +24,7 @@ class ReadyEvent extends Event {
     await configDB();
 
     console.log(
-      `\n\n${labelType.ONLINE} ${kleur.blue('Bot is ready!')}\n${kleur.gray('Press').padStart(labelType.ONLINE.length - 3)} ${kleur.white('s')} ${kleur.gray('to turn off the bot')}`,
+      `\n\n${labelType.ONLINE} ${kleur.blue("Bot is ready!")}\n${kleur.gray("Press").padStart(labelType.ONLINE.length - 3)} ${kleur.white("s")} ${kleur.gray("to turn off the bot")}`,
     );
   }
 }

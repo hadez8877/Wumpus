@@ -1,5 +1,5 @@
-import BaseHandler from '@/lib/BaseHandler';
-import WumpusClient from '@/lib/WumpusClient';
+import BaseHandler from "@/lib/BaseHandler";
+import WumpusClient from "@/lib/WumpusClient";
 
 export interface BaseModuleData {
   category?: string;
@@ -12,7 +12,7 @@ class BaseModule {
   client!: WumpusClient;
   handler!: BaseHandler;
   categoryID: string;
-  constructor(id: string, { category = 'default' }: BaseModuleData) {
+  constructor(id: string, { category = "default" }: BaseModuleData) {
     this.id = id;
     this.categoryID = category;
   }

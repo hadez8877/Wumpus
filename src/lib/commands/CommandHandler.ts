@@ -1,13 +1,13 @@
-import { Collection } from 'discord.js';
-import labelType from '@/utils/labels';
-import { readdirSync, statSync } from 'fs';
-import path from 'path';
-import BaseHandler from '@/lib/BaseHandler';
-import Command from '@/lib/commands/Command';
-import kleur from 'kleur';
-import readline from 'readline';
-import src from '@/utils/src';
-import WumpusBot from '@/lib/WumpusClient';
+import { Collection } from "discord.js";
+import labelType from "@/utils/labels";
+import { readdirSync, statSync } from "fs";
+import path from "path";
+import BaseHandler from "@/lib/BaseHandler";
+import Command from "@/lib/commands/Command";
+import kleur from "kleur";
+import readline from "readline";
+import src from "@/utils/src";
+import WumpusBot from "@/lib/WumpusClient";
 
 class CommandHandler extends BaseHandler {
   client: WumpusBot;
@@ -17,7 +17,7 @@ class CommandHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src('commands'),
+      path: src("commands"),
     });
 
     this.client = client;
@@ -27,7 +27,7 @@ class CommandHandler extends BaseHandler {
   }
 
   async loadAll() {
-    const commandFiles = this.getAllFiles(this.path).filter((file) => file.endsWith('.ts') || file.endsWith('.js'));
+    const commandFiles = this.getAllFiles(this.path).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
 
     this.commandsStatus();
 
@@ -54,7 +54,7 @@ class CommandHandler extends BaseHandler {
     readline.cursorTo(process.stdout as any, 0);
     readline.clearLine(process.stdout as any, 0);
 
-    process.stdout.write(`${labelType.SUCCESS} ${kleur.green('Commands loaded!\n')}`);
+    process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Commands loaded!\n")}`);
   }
 
   private getAllFiles(dir: string, files: string[] = []): string[] {

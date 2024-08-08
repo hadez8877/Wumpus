@@ -1,7 +1,7 @@
-import { Client, Message } from 'discord.js';
-import BaseModule from '@/lib/BaseModule';
+import { Client, Message } from "discord.js";
+import BaseModule from "@/lib/BaseModule";
 
-type permissionsType = 'developer' | 'owner' | 'admin' | 'mod' | 'member';
+type permissionsType = "developer" | "owner" | "admin" | "mod" | "member";
 
 interface CommandData {
   aliases?: string[];
@@ -22,11 +22,11 @@ abstract class Command extends BaseModule {
   constructor(id: string, { aliases, description, usage, permissionType, category }: CommandData) {
     super(id, { category });
     this.aliases = aliases || [id];
-    this.description = description || '';
-    this.usage = usage || '';
-    this.permissionType = permissionType || 'member';
-    this.__filepath = '';
-    this.category = category || '';
+    this.description = description || "";
+    this.usage = usage || "";
+    this.permissionType = permissionType || "member";
+    this.__filepath = "";
+    this.category = category || "";
   }
 
   abstract run(message: Message, args: string[], client: Client): void;
