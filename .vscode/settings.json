@@ -1,3 +1,12 @@
 {
-    "discord.enabled": true
+    "discord.enabled": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
+    "workbench.preferredHighContrastColorTheme": "One Dark Pro Darker",
+    "workbench.preferredHighContrastLightColorTheme": "Default High Contrast",
+    "workbench.preferredLightColorTheme": "One Dark Pro",
+    "workbench.iconTheme": "symbols",
+    "workbench.sideBar.location": "right",
+    "files.autoGuessEncoding": false,
+    "prettier.requirePragma": false,
 }
