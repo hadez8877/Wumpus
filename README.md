@@ -1,7 +1,7 @@
-![Banner](./public/images/ReadmeBanner.png)
+![Banner](./public/images/ReadmeBanner.avif)
 
 <div align="center">
-  
+
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fhadez8877%2FWumpus%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/hadez8877/Wumpus/goto?ref=main)
 ![GitHub stars](https://img.shields.io/github/stars/hadez8877/Wumpus)
 ![GitHub issues](https://img.shields.io/github/issues/hadez8877/Wumpus)

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/images/ContributingBanner.png" alt="Banner" width="750" />
+  <img src="./public/images/ContributingBanner.avif" alt="Banner" width="750" />
 </div>
 
 # Contributing to Wumpus

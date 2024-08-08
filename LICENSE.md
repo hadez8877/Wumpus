@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/images/LicenseBanner.png" alt="Banner" width="750" />
+  <img src="./public/images/LicenseBanner.avif" alt="Banner" width="750" />
 </div>
 
 # Elastic License 2.0 (ELv2)
