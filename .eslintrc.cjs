@@ -30,7 +30,7 @@ module.exports = {
     rules: {
         "eol-last": "off",
         "jsx-quotes": ["warn", "prefer-double"],
-        "quotes": ["warn", "double"],
+        "quotes": ["error", "double"],
         "semi": ["error", "always"],
         "no-constant-binary-expression": "off",
         "no-debugger": "warn",
