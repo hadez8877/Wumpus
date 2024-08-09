@@ -7,7 +7,9 @@
     "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@models/*": ["db/models/*"],
+      "@errors/*": ["src/plugins/errors/*"]
     },
     "outDir": "./dist",
     "esModuleInterop": true,

@@ -1,15 +1,10 @@
 import { defineConfig } from "vitest/config";
-import path from "path";
+import tsconfigPaths from "vitest-tsconfig-paths";
 
 export default defineConfig({
+  plugins: [tsconfigPaths()],
   test: {
     environment: "node",
     testTimeout: 20000
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src/"),
-      "@db/": path.resolve(__dirname, "./db/")
-    },
   }
 });
