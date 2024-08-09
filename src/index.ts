@@ -1,4 +1,4 @@
-import { Message, ChannelType, PermissionsBitField } from "discord.js";
+import { Message, ChannelType, PermissionsBitField, GuildMember } from "discord.js";
 import ClientError from "@/utils/errors/ClientError";
 import WumpusClient from "@/lib/WumpusClient";
 
@@ -6,6 +6,7 @@ import "dotenv/config";
 
 import whitelist from "db/whitelistSchema";
 import CommandError from "./utils/errors/CommandError";
+import checkPermissions from "./lib/checkPermissions";
 
 const client = new WumpusClient();
 
@@ -14,6 +15,7 @@ client.eventHandler.loadAll();
 
 client.on("messageCreate", async (message: Message) => {
   if (message.author.bot) return;
+  if (!message.guild) return;
 
   // eslint-disable-next-line no-var
   var whitelistData = await whitelist.findOne({ Guild: message.guild?.id });
@@ -37,36 +39,17 @@ client.on("messageCreate", async (message: Message) => {
 
   if (!command) return;
 
-  const { permissionType } = command;
+  const { permissions } = command;
 
-  switch (permissionType) {
-    case "developer":
-      const developers: string[] = ["1173072980000112671"];
+  const { hasPermissions, missingPermissions } = checkPermissions(message.member as GuildMember, permissions);
 
-      if (!developers.includes(message.author.id))
-        return await message.reply({
-          content:
-            "<:BadgeSlashCommands:1234642175116054608> Este comando solo puede ser utilizado por el creador de Wumpus.",
-          allowedMentions: { repliedUser: false },
-        });
-      break;
+  if (!hasPermissions) {
+    const missingPermissionsList = missingPermissions.map((permission) => `\`${permission}\``).join(", ");
 
-    case "owner":
-      if (message.guild && message.guild?.ownerId !== message.author.id) return;
-      break;
-
-    case "admin":
-      if (!message.member?.permissions.has(PermissionsBitField.Flags.Administrator))
-        return await message.reply({
-          content:
-            "<:UtilityMessageInteractionWarn:1234642336580108298> No tienes los permisos suficientes para usar este comando.",
-          allowedMentions: { repliedUser: false },
-        });
-      break;
-
-    case "mod":
-      // Coming soon!
-      break;
+    return await message.reply({
+      content: `<:WumpusCry:1234249327241592873> Te faltan permisos para ejecutar el comando.\nPermisos faltantes: ${missingPermissionsList}`,
+      allowedMentions: { repliedUser: false },
+    });
   }
 
   try {

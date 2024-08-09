@@ -1,13 +1,12 @@
 import { Client, Message } from "discord.js";
 import BaseModule from "@/lib/BaseModule";
-
-type permissionsType = "developer" | "owner" | "admin" | "mod" | "member";
+import APIPermissions from "@/types/permssions";
 
 interface CommandData {
   aliases?: string[];
   description?: string;
   usage?: string;
-  permissionType?: permissionsType;
+  permissions?: APIPermissions[];
   category?: string;
 }
 
@@ -15,16 +14,16 @@ abstract class Command extends BaseModule {
   aliases: string[];
   description: string;
   usage: string;
-  permissionType: permissionsType;
+  permissions: APIPermissions[];
   __filepath: string;
   category: string;
 
-  constructor(id: string, { aliases, description, usage, permissionType, category }: CommandData) {
+  constructor(id: string, { aliases, description, usage, permissions, category }: CommandData) {
     super(id, { category });
     this.aliases = aliases || [id];
     this.description = description || "";
     this.usage = usage || "";
-    this.permissionType = permissionType || "member";
+    this.permissions = permissions || [];
     this.__filepath = "";
     this.category = category || "";
   }
