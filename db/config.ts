@@ -1,5 +1,5 @@
 import labelType from "@/utils/labels";
-import DBError from "@/utils/errors/DBError";
+import DBError from "@errors/DBError";
 import mongoose from "mongoose";
 
 import "dotenv/config";

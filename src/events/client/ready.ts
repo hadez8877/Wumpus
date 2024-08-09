@@ -1,5 +1,5 @@
 import { ActivityType, Client, Events } from "discord.js";
-import configDB from "db/config/configDB";
+import configDB from "db/config";
 import Event from "@/lib/events/Event";
 import kleur from "kleur";
 import labelType from "@/utils/labels";

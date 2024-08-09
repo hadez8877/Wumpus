@@ -1,6 +1,6 @@
 import { Client, Message } from "discord.js";
 import Command from "@/lib/commands/Command";
-import whitelist from "db/whitelistSchema";
+import whitelist from "@models/whitelistSchema";
 
 class WhitelistCommand extends Command {
   constructor() {
@@ -8,7 +8,7 @@ class WhitelistCommand extends Command {
       aliases: ["wl"],
       description: "Agrega un servidor a la lista blanca.",
       usage: "<sub> [guildId]",
-      permissions: ["developer"]
+      permissions: ["developer"],
     });
   }
 

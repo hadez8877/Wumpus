@@ -24,7 +24,7 @@ describe("Command Handler", () => {
       expect(command.aliases).toBeInstanceOf(Array);
       expect(command.description).toBeDefined();
       expect(command.usage).toBeDefined();
-      expect(command.permissionType).toMatch(/developer|owner|admin|mod|member/);
+      expect(command.permissions).toBeInstanceOf(Array);
       expect(command.category).toBeDefined();
     });
   });
