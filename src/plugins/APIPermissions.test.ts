@@ -31,7 +31,7 @@ describe("Check Permissions", () => {
   });
 
   it("should return false when the member is not a developer and the required permission is 'developer'", () => {
-    const permissions: APIPermissions[] = ["developer"];
+    const permissions: APIPermissions[] = ["manageAccess"];
     const member = mockGuildMember(PermissionsBitField.Flags.Administrator);
 
     const result = checkPermissions(member, permissions);
@@ -41,7 +41,7 @@ describe("Check Permissions", () => {
   });
 
   it("should return true when the member is a developer and the required permission is 'developer'", () => {
-    const permissions: APIPermissions[] = ["developer"];
+    const permissions: APIPermissions[] = ["manageAccess"];
     const member = {
       ...mockGuildMember(PermissionsBitField.Flags.Administrator),
       id: "1173072980000112671",
