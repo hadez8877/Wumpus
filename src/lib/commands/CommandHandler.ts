@@ -17,7 +17,7 @@ class CommandHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("commands"),
+      path: src("commands")
     });
 
     this.client = client;
@@ -44,7 +44,7 @@ class CommandHandler extends BaseHandler {
 
         return console.error(
           `\n${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`,
-          err,
+          err
         );
       }
 
@@ -77,7 +77,7 @@ class CommandHandler extends BaseHandler {
     readline.clearLine(process.stdout as any, 0);
 
     process.stdout.write(
-      `${kleur.bold().blue(`${this.commandsLoaded} commands`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`,
+      `${kleur.bold().blue(`${this.commandsLoaded} commands`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`
     );
   }
 }

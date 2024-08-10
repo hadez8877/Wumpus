@@ -42,7 +42,7 @@ const Permissions: Record<APIPermissions, bigint> = {
   sendMessagesInThreads: PermissionsBitField.Flags.SendMessagesInThreads,
   startEmbeddedActivities: PermissionsBitField.Flags.UseEmbeddedActivities,
   moderateMembers: PermissionsBitField.Flags.ModerateMembers,
-  manageAccess: BigInt(0),
+  manageAccess: BigInt(0)
 };
 
 export default Permissions;

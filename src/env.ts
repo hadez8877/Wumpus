@@ -11,7 +11,7 @@ const envType = z.object({
 
   DB_PORT: z.string().regex(/^mongodb\+srv:\/\/[^:]+:[^@]+@[^\\/]+\/\?[^\\/]+$/),
 
-  NODE_ENV: z.string().default("development"),
+  NODE_ENV: z.string().default("development")
 });
 
 envType.parse(process.env);

@@ -4,7 +4,7 @@ import Command from "@/lib/commands/Command";
 class PingCommand extends Command {
   constructor() {
     super("ping", {
-      description: "Verifica el ping del bot.",
+      description: "Verifica el ping del bot."
     });
   }
 
@@ -13,7 +13,7 @@ class PingCommand extends Command {
 
     return await message.reply({
       content: `🏓 ¡Pong! La latencia es de \`\`${ping}ms\`\`.`,
-      allowedMentions: { repliedUser: false },
+      allowedMentions: { repliedUser: false }
     });
   }
 }

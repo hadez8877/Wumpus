@@ -15,9 +15,9 @@ class WumpusClient extends Client {
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.MessageContent
       ],
-      partials: [Partials.User, Partials.Message, Partials.GuildMember, Partials.ThreadMember],
+      partials: [Partials.User, Partials.Message, Partials.GuildMember, Partials.ThreadMember]
     });
 
     this.commandHandler = new CommandHandler(this);

@@ -4,7 +4,7 @@ import APIPermissions from "@/types/permssions";
 
 const checkPermissions = (
   member: GuildMember,
-  permissions: APIPermissions[],
+  permissions: APIPermissions[]
 ): { hasPermissions: boolean; missingPermissions: APIPermissions[] } => {
   const missingPermissions = permissions.filter((p) => {
     if (p === "manageAccess") {
@@ -20,7 +20,7 @@ const checkPermissions = (
 
   return {
     hasPermissions: missingPermissions.length === 0,
-    missingPermissions,
+    missingPermissions
   };
 };
 

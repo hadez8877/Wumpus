@@ -5,7 +5,7 @@ class JumboCommand extends Command {
   constructor() {
     super("jumbo", {
       description: "Convierte un emoji en uno más grande.",
-      usage: "<emoji>",
+      usage: "<emoji>"
     });
   }
 
@@ -21,12 +21,12 @@ class JumboCommand extends Command {
 
       return await message.reply({
         content: `https://cdn.discordapp.com/emojis/${emojiId}.${isAnimated ? "gif" : "png"}?v=1`,
-        allowedMentions: { repliedUser: false },
+        allowedMentions: { repliedUser: false }
       });
     } else {
       return await message.reply({
         content: "<:UtilityMessageInteractionWarn:1234642336580108298> Por favor, proporciona un emoji válido.",
-        allowedMentions: { repliedUser: false },
+        allowedMentions: { repliedUser: false }
       });
     }
   }

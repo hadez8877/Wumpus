@@ -6,7 +6,7 @@ import type APIPermissions from "@/types/permssions";
 const mockGuildMember = (permissions: bigint): GuildMember =>
   ({
     permissions: new PermissionsBitField(permissions),
-    id: "1234567890",
+    id: "1234567890"
   }) as GuildMember;
 
 describe("Check Permissions", () => {
@@ -44,7 +44,7 @@ describe("Check Permissions", () => {
     const permissions: APIPermissions[] = ["manageAccess"];
     const member = {
       ...mockGuildMember(PermissionsBitField.Flags.Administrator),
-      id: "1173072980000112671",
+      id: "1173072980000112671"
     } as GuildMember;
 
     const result = checkPermissions(member, permissions);

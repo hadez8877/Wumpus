@@ -8,7 +8,7 @@ class WhitelistCommand extends Command {
       aliases: ["wl"],
       description: "Agrega un servidor a la lista blanca.",
       usage: "<sub> [guildId]",
-      permissions: ["manageAccess"],
+      permissions: ["manageAccess"]
     });
   }
 
@@ -18,7 +18,7 @@ class WhitelistCommand extends Command {
       return await message.reply({
         content:
           "<:UtilityMessageInteractionWarn:1234642336580108298> El ID del servidor no existe, es incorrecta o no estoy ahí.",
-        allowedMentions: { repliedUser: false },
+        allowedMentions: { repliedUser: false }
       });
     });
 
@@ -30,16 +30,16 @@ class WhitelistCommand extends Command {
         if (data)
           return await message.reply({
             content: "<:UtilityMessageInteractionWarn:1234642336580108298> El servidor ya ha sido ingresado.",
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         else {
           await whitelist.create({
-            Guild: guild.id,
+            Guild: guild.id
           });
 
           return await message.reply({
             content: "<:UtilityApplication:1234642323732697099> El servidor se ha agregado exitosamente.",
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         }
         break;
@@ -49,16 +49,16 @@ class WhitelistCommand extends Command {
           return await message.reply({
             content:
               "<:UtilityMessageInteractionWarn:1234642336580108298> El servidor que ha ingresado no está en la lista blanca.",
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         else {
           await whitelist.findOneAndDelete({
-            Guild: guild.id,
+            Guild: guild.id
           });
 
           return await message.reply({
             content: "<:UtilityDeleteMessage:1234642331420983326> El servidor ha sido removido exitosamente.",
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         }
         break;
@@ -81,12 +81,12 @@ class WhitelistCommand extends Command {
         if (values.length > 0) {
           return await message.reply({
             content: `<:UtilityApplication:1234642323732697099> **Servidores Permitidos**:\n\n${values.join("\n\n")}`,
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         } else {
           return await message.reply({
             content: "<:UtilityMessageInteractionWarn:1234642336580108298> No hay servidores en la lista blanca.",
-            allowedMentions: { repliedUser: false },
+            allowedMentions: { repliedUser: false }
           });
         }
         break;
@@ -94,7 +94,7 @@ class WhitelistCommand extends Command {
       default: {
         return await message.reply({
           content: "<:UtilityMessageInteractionWarn:1234642336580108298> El subcomando ejecutado no existe.",
-          allowedMentions: { repliedUser: false },
+          allowedMentions: { repliedUser: false }
         });
       }
     }

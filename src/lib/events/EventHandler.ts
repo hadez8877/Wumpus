@@ -17,7 +17,7 @@ class EventHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("events"),
+      path: src("events")
     });
 
     this.client = client;
@@ -47,7 +47,7 @@ class EventHandler extends BaseHandler {
 
         return console.error(
           `\n${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`,
-          err,
+          err
         );
       }
 
@@ -80,7 +80,7 @@ class EventHandler extends BaseHandler {
     readline.clearLine(process.stdout as any, 0);
 
     process.stdout.write(
-      `${kleur.bold().blue(`${this.eventsLoaded} events`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`,
+      `${kleur.bold().blue(`${this.eventsLoaded} events`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`
     );
   }
 }

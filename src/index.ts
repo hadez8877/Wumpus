@@ -34,7 +34,7 @@ client.on("messageCreate", async (message: Message) => {
 
   const commandName = args.shift()?.toLowerCase();
   const command = client.commandHandler.modules.find((m: { aliases: string | string[] }) =>
-    m.aliases.includes(`${commandName}`),
+    m.aliases.includes(`${commandName}`)
   );
 
   if (!command) return;
@@ -49,7 +49,7 @@ client.on("messageCreate", async (message: Message) => {
 
       return await message.reply({
         content: `<:WumpusCry:1234249327241592873> Te faltan permisos para ejecutar el comando.\nPermisos faltantes: ${missingPermissionsList}`,
-        allowedMentions: { repliedUser: false },
+        allowedMentions: { repliedUser: false }
       });
     }
   }

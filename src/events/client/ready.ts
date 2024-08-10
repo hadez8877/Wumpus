@@ -7,7 +7,7 @@ import labelType from "@/utils/labels";
 class ReadyEvent extends Event {
   constructor() {
     super(Events.ClientReady, {
-      once: true,
+      once: true
     });
   }
 
@@ -16,15 +16,15 @@ class ReadyEvent extends Event {
       activities: [
         {
           name: "I dont work! (really).",
-          type: ActivityType.Custom,
-        },
-      ],
+          type: ActivityType.Custom
+        }
+      ]
     });
 
     await configDB();
 
     console.log(
-      `\n\n${labelType.ONLINE} ${kleur.blue("Bot is ready!")}\n${kleur.gray("Press").padStart(labelType.ONLINE.length - 3)} ${kleur.white("s")} ${kleur.gray("to turn off the bot")}`,
+      `\n\n${labelType.ONLINE} ${kleur.blue("Bot is ready!")}\n${kleur.gray("Press").padStart(labelType.ONLINE.length - 3)} ${kleur.white("s")} ${kleur.gray("to turn off the bot")}`
     );
   }
 }
