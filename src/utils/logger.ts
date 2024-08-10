@@ -19,7 +19,7 @@ const logger = {
 
   log(...args: Parameters<typeof console.log>) {
     console.log(...args);
-  },
+  }
 };
 
 export default logger;

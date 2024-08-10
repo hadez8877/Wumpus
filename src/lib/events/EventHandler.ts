@@ -18,7 +18,7 @@ class EventHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("events")
+      path: src("data")
     });
 
     this.client = client;
@@ -46,10 +46,7 @@ class EventHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        return logger.error(
-          `Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`,
-          err
-        );
+        return logger.error(`Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`, err);
       }
 
       this.updateEventsStatus();
@@ -66,10 +63,19 @@ class EventHandler extends BaseHandler {
 
     for (const entry of entries) {
       const fullPath = path.join(dir, entry);
+
       if (statSync(fullPath).isDirectory()) {
+        if (entry === "events") {
+          const eventFiles = readdirSync(fullPath);
+
+          for (const file of eventFiles) {
+            if (file.endsWith(".ts") || file.endsWith(".js")) {
+              files.push(path.join(fullPath, file));
+            }
+          }
+        }
+
         this.getAllFiles(fullPath, files);
-      } else {
-        files.push(fullPath);
       }
     }
 

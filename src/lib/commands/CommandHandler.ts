@@ -18,7 +18,7 @@ class CommandHandler extends BaseHandler {
 
   constructor(client: WumpusBot) {
     super(client, {
-      path: src("commands")
+      path: src("data")
     });
 
     this.client = client;
@@ -43,10 +43,7 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        return logger.error(
-          `\nError loading command from file ${kleur.bold().blue(`${file}`)}:\n`,
-          err
-        );
+        return logger.error(`\nError loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
       }
 
       this.commandsStatus();
@@ -63,10 +60,19 @@ class CommandHandler extends BaseHandler {
 
     for (const entry of entries) {
       const fullPath = path.join(dir, entry);
+
       if (statSync(fullPath).isDirectory()) {
+        if (entry === "commands") {
+          const eventFiles = readdirSync(fullPath);
+
+          for (const file of eventFiles) {
+            if (file.endsWith(".ts") || file.endsWith(".js")) {
+              files.push(path.join(fullPath, file));
+            }
+          }
+        }
+
         this.getAllFiles(fullPath, files);
-      } else {
-        files.push(fullPath);
       }
     }
 
