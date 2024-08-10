@@ -41,15 +41,17 @@ client.on("messageCreate", async (message: Message) => {
 
   const { permissions } = command;
 
-  const { hasPermissions, missingPermissions } = checkPermissions(message.member as GuildMember, permissions);
+  if (permissions && message.member) {
+    const { hasPermissions, missingPermissions } = checkPermissions(message.member, permissions);
 
-  if (!hasPermissions) {
-    const missingPermissionsList = missingPermissions.map((permission) => `\`${permission}\``).join(", ");
+    if (!hasPermissions) {
+      const missingPermissionsList = missingPermissions.map((permission) => `\`${permission}\``).join(", ");
 
-    return await message.reply({
-      content: `<:WumpusCry:1234249327241592873> Te faltan permisos para ejecutar el comando.\nPermisos faltantes: ${missingPermissionsList}`,
-      allowedMentions: { repliedUser: false },
-    });
+      return await message.reply({
+        content: `<:WumpusCry:1234249327241592873> Te faltan permisos para ejecutar el comando.\nPermisos faltantes: ${missingPermissionsList}`,
+        allowedMentions: { repliedUser: false },
+      });
+    }
   }
 
   try {

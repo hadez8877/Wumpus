@@ -39,6 +39,6 @@ type APIPermissions =
   | "sendMessagesInThreads"
   | "startEmbeddedActivities"
   | "moderateMembers"
-  | "developer";
+  | "manageAccess";
 
 export default APIPermissions;
