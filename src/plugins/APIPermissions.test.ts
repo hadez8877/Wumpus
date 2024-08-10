@@ -37,7 +37,7 @@ describe("Check Permissions", () => {
     const result = checkPermissions(member, permissions);
 
     expect(result.hasPermissions).toBe(false);
-    expect(result.missingPermissions).toEqual(["developer"]);
+    expect(result.missingPermissions).toEqual(["manageAccess"]);
   });
 
   it("should return true when the member is a developer and the required permission is 'developer'", () => {
