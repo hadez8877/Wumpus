@@ -1,13 +1,14 @@
 import { Collection } from "discord.js";
-import Event from "@/lib/events/Event";
-import BaseHandler from "@/lib/BaseHandler";
-import WumpusBot from "@/lib/WumpusClient";
 import { readdirSync, statSync } from "fs";
-import path from "path";
+import BaseHandler from "@/lib/BaseHandler";
+import Event from "@/lib/events/Event";
 import kleur from "kleur";
+import labelType from "@/utils/labels";
+import logger from "@/utils/logger";
+import path from "path";
 import readline from "readline";
 import src from "@/utils/src";
-import labelType from "@/utils/labels";
+import WumpusBot from "@/lib/WumpusClient";
 
 class EventHandler extends BaseHandler {
   client: WumpusBot;
@@ -45,8 +46,8 @@ class EventHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        return console.error(
-          `\n${labelType.ERROR} Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`,
+        return logger.error(
+          `Error loading event from file ${kleur.bold().blue(`${file}`)}:\n`,
           err
         );
       }

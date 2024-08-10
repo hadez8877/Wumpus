@@ -1,13 +1,13 @@
-import labelType from "@/utils/labels";
 import DBError from "@errors/DBError";
+import logger from "@/utils/logger";
 import mongoose from "mongoose";
 
 import "dotenv/config";
 
 async function configDB() {
   if (!process.env.DB_PORT)
-    console.warn(
-      `${labelType.WARN} It is necessary to connect to a database, as certain commands do not work without it.`,
+    logger.warn(
+      "It is necessary to connect to a database, as certain commands do not work without it.",
     );
   else {
     await mongoose.connect(process.env.DB_PORT).catch((err) => {

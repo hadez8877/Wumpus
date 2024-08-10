@@ -1,4 +1,4 @@
-import { Message, ChannelType, PermissionsBitField, GuildMember } from "discord.js";
+import { Message, ChannelType, PermissionsBitField } from "discord.js";
 import checkPermissions from "@/plugins/checkPermissions";
 import ClientError from "@errors/ClientError";
 import CommandError from "@errors/CommandError";

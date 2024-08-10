@@ -1,10 +1,11 @@
 import { Collection } from "discord.js";
-import labelType from "@/utils/labels";
 import { readdirSync, statSync } from "fs";
-import path from "path";
 import BaseHandler from "@/lib/BaseHandler";
 import Command from "@/lib/commands/Command";
 import kleur from "kleur";
+import labelType from "@/utils/labels";
+import logger from "@/utils/logger";
+import path from "path";
 import readline from "readline";
 import src from "@/utils/src";
 import WumpusBot from "@/lib/WumpusClient";
@@ -42,8 +43,8 @@ class CommandHandler extends BaseHandler {
       } catch (err) {
         this.errorsFound++;
 
-        return console.error(
-          `\n${labelType.ERROR} Error loading command from file ${kleur.bold().blue(`${file}`)}:\n`,
+        return logger.error(
+          `\nError loading command from file ${kleur.bold().blue(`${file}`)}:\n`,
           err
         );
       }
