@@ -2,6 +2,8 @@ import { Client, Message } from "discord.js";
 import Command from "@/lib/commands/Command";
 import whitelist from "@models/whitelistSchema";
 
+import getGuild from "@/data/getGuild";
+
 class WhitelistCommand extends Command {
   constructor() {
     super("whitelist", {
@@ -14,7 +16,7 @@ class WhitelistCommand extends Command {
 
   async run(message: Message, args: string[], client: Client) {
     const sub = args[0];
-    const guild = await client.guilds.fetch(args[1]).catch(async () => {
+    const guild = await getGuild(client, args[1]).catch(async () => {
       return await message.reply({
         content:
           "<:UtilityMessageInteractionWarn:1234642336580108298> El ID del servidor no existe, es incorrecta o no estoy ahí.",
