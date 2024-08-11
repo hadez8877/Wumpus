@@ -18,7 +18,7 @@ client.on("messageCreate", async (message: Message) => {
   if (!message.guild) return;
 
   // eslint-disable-next-line no-var
-  var whitelistData = await whitelist.findOne({ Guild: message.guild?.id });
+  var whitelistData = await whitelist.findOne({ Guild: message.guildId });
   if (!whitelistData) return;
 
   const prefix = process.env.BOT_PREFIX ?? "!";
