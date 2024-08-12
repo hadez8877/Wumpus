@@ -1,11 +1,11 @@
 {
   "name": "wumpus",
   "version": "1.0.0",
-  "description": "🧩 Discord bot designed to provide advanced and highly customizable moderation.",
+  "description": "🪂 Discord bot designed to provide advanced and highly customizable moderation.",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --require tsconfig-paths/register src/index.ts",
-    "build": "tsc",
+    "build": "tsc --build",
     "start": "node .",
     "test": "vitest",
     "lint": "eslint --ext .ts,.js,.tsx .",
@@ -22,12 +22,14 @@
     "kleur": "4.1.5",
     "mongoose": "8.5.1",
     "readline": "1.3.0",
+    "tmp": "0.2.3",
     "vitest-tsconfig-paths": "3.4.1",
     "zod": "3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "9.7.0",
     "@types/node": "20.14.10",
+    "@types/tmp": "0.2.6",
     "@typescript-eslint/eslint-plugin": "7.17.0",
     "@typescript-eslint/parser": "7.17.0",
     "eslint": "8.57.0",

@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "target": "ESNext",
-    "typeRoots": ["./types"],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "target": "ES6",
+    "types": ["node"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
@@ -13,10 +11,8 @@
     },
     "outDir": "./dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
+    "strict": true
   },
-  "include": ["src", "db"],
-  "exclude": ["node_modules", "dist", "vite.config.ts", "public"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
