@@ -4,7 +4,7 @@ import BaseHandler from "@/lib/BaseHandler";
 import Command from "@/lib/commands/Command";
 import kleur from "kleur";
 import labelType from "@/utils/labels";
-import logger from "@/utils/logger";
+import logger from "@/logger";
 import path from "path";
 import readline from "readline";
 import src from "@/utils/src";

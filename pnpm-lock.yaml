@@ -30,7 +30,7 @@ importers:
         specifier: 6.2.0
         version: 6.2.0(typescript@5.5.3)
       tsconfig-paths:
-        specifier: ^4.2.0
+        specifier: 4.2.0
         version: 4.2.0
       zod:
         specifier: 3.23.8

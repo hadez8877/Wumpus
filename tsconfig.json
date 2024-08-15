@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "target": "esnext",
-    "lib": ["ESNext"],
+    "lib": ["ES2023"],
     "types": ["node"],
     "moduleResolution": "NodeNext",
     "module": "NodeNext",

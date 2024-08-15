@@ -3,7 +3,7 @@ import configDB from "db/config";
 import Event from "@/lib/events/Event";
 import kleur from "kleur";
 import labelType from "@/utils/labels";
-import logger from "@/utils/logger";
+import logger from "@/logger";
 
 class ReadyEvent extends Event {
   constructor() {
