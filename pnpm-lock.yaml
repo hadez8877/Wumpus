@@ -23,6 +23,9 @@ importers:
       readline:
         specifier: 1.3.0
         version: 1.3.0
+      tlds:
+        specifier: 1.254.0
+        version: 1.254.0
       tmp:
         specifier: 0.2.3
         version: 0.2.3
@@ -1862,6 +1865,10 @@ packages:
   time-zone@1.0.0:
     resolution: {integrity: sha512-TIsDdtKo6+XrPtiTm1ssmMngN1sAhyKnTO2kunQWqNPWIVvCm15Wmw4SWInwTVgJ5u/Tr04+8Ei9TNcw4x4ONA==}
     engines: {node: '>=4'}
+
+  tlds@1.254.0:
+    resolution: {integrity: sha512-YY4ei7K7gPGifqNSrfMaPdqTqiHcwYKUJ7zhLqQOK2ildlGgti5TSwJiXXN1YqG17I2GYZh5cZqv2r5fwBUM+w==}
+    hasBin: true
 
   tmp@0.2.3:
     resolution: {integrity: sha512-nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==}
@@ -4082,6 +4089,8 @@ snapshots:
   through@2.3.8: {}
 
   time-zone@1.0.0: {}
+
+  tlds@1.254.0: {}
 
   tmp@0.2.3: {}
 
