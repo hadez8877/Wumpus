@@ -1,18 +1,31 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES6",
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "esnext",
+    "lib": ["ESNext"],
     "types": ["node"],
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "strict": true,
     "baseUrl": "./",
+    "rootDir": "./",
+    "outDir": "./dist",
     "paths": {
       "@/*": ["src/*"],
       "@models/*": ["db/models/*"],
       "@errors/*": ["src/plugins/errors/*"]
     },
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "strict": true
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": false
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*.ts", "src/**/*.json"]
 }
