@@ -3,12 +3,15 @@ import checkPermissions from "@/plugins/checkPermissions";
 import ClientError from "@errors/ClientError";
 import CommandError from "@errors/CommandError";
 import WumpusClient from "@/lib/WumpusClient";
+import db from "db/config";
 
 import "dotenv/config";
 
 import whitelist from "@models/whitelistSchema";
 
 const client = new WumpusClient();
+
+db.connect();
 
 client.commandHandler.loadAll();
 client.eventHandler.loadAll();
