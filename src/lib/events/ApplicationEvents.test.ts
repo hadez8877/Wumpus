@@ -1,27 +1,27 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import test from "ava";
 import WumpusClient from "@/lib/WumpusClient";
 
 const client = new WumpusClient();
 
-describe("event Handler", () => {
-  beforeAll(async () => {
-    await client.eventHandler.loadAll();
-  });
+test.before(async t => {
+  await client.eventHandler.loadAll();
+  t.pass();
+});
 
-  it("should load all events without errors", () => {
-    const events = client.eventHandler.modules;
+test("should load all events without errors", t => {
+  const events = client.eventHandler.modules;
 
-    expect(events.size).toBe(client.eventHandler.eventsLoaded);
+  t.is(events.size, client.eventHandler.eventsLoaded);
+  t.is(client.eventHandler.errorsFound, 0);
+});
 
-    expect(client.eventHandler.errorsFound).toBe(0);
-  });
+test("should verify event properties", t => {
+  const events = client.eventHandler.modules;
 
-  it("should verify event properties", () => {
-    const events = client.eventHandler.modules;
-
-    events.forEach((event) => {
-      expect(event.id).toBeDefined();
-      expect(event.once).toBeDefined();
-    });
+  events.forEach(event => {
+    t.truthy(event.id);
+    t.truthy(event.once);
   });
 });
+
+/* Hi :D */

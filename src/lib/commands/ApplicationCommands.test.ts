@@ -1,31 +1,29 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import test from "ava";
 import WumpusClient from "@/lib/WumpusClient";
 
 const client = new WumpusClient();
 
-describe("Command Handler", () => {
-  beforeAll(async () => {
-    await client.commandHandler.loadAll();
-  });
+test.before(async t => {
+  await client.commandHandler.loadAll();
+  t.pass();
+});
 
-  it("should load all commands without errors", () => {
-    const commands = client.commandHandler.modules;
+test("should load all commands without errors", t => {
+  const commands = client.commandHandler.modules;
 
-    expect(commands.size).toBe(client.commandHandler.commandsLoaded);
+  t.is(commands.size, client.commandHandler.commandsLoaded);
+  t.is(client.commandHandler.errorsFound, 0);
+});
 
-    expect(client.commandHandler.errorsFound).toBe(0);
-  });
+test("should verify command properties", t => {
+  const commands = client.commandHandler.modules;
 
-  it("should verify command properties", () => {
-    const commands = client.commandHandler.modules;
-
-    commands.forEach((command) => {
-      expect(command.id).toBeDefined();
-      expect(command.aliases).toBeInstanceOf(Array);
-      expect(command.description).toBeDefined();
-      expect(command.usage).toBeDefined();
-      expect(command.permissions).toBeInstanceOf(Array);
-      expect(command.category).toBeDefined();
-    });
+  commands.forEach(command => {
+    t.truthy(command.id);
+    t.true(Array.isArray(command.aliases));
+    t.truthy(command.description);
+    t.truthy(command.usage);
+    t.true(Array.isArray(command.permissions));
+    t.truthy(command.category);
   });
 });

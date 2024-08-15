@@ -1,13 +1,17 @@
 {
-  "name": "wumpus",
-  "version": "1.0.0",
+  "name": "wumpus-bot",
+  "version": "0.0.1",
   "description": "🪂 Discord bot designed to provide advanced and highly customizable moderation.",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --require tsconfig-paths/register src/index.ts",
+    "watch": "tsc-watch --build --onSuccess \"node start-dev.js\"",
+    "start-bot-prod": "node --enable-source-maps --stack-trace-limit=30 dist/index.js",
+    "start-bot-dev": "node --enable-source-maps --stack-trace-limit=30 --inspect=0.0.0.0:9229 dist/index.js",
+    "start-bot": "pnpm run start-bot-prod",
     "build": "tsc --build",
     "start": "node .",
-    "test": "vitest",
+    "run-tests": "ava",
+    "test-watch": "tsc-watch --build --onSuccess \"pnpx ava\"",
     "lint": "eslint --ext .ts,.js,.tsx .",
     "lint:fix": "eslint --ext .ts,.js,.tsx . --fix",
     "format": "prettier --write src",
@@ -23,7 +27,8 @@
     "mongoose": "8.5.1",
     "readline": "1.3.0",
     "tmp": "0.2.3",
-    "vitest-tsconfig-paths": "3.4.1",
+    "tsc-watch": "6.2.0",
+    "tsconfig-paths": "4.2.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
@@ -32,6 +37,7 @@
     "@types/tmp": "0.2.6",
     "@typescript-eslint/eslint-plugin": "7.17.0",
     "@typescript-eslint/parser": "7.17.0",
+    "ava": "6.1.3",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
@@ -42,11 +48,16 @@
     "globals": "15.8.0",
     "prettier": "3.3.3",
     "standard": "17.1.0",
-    "ts-node-dev": "2.0.0",
-    "tsconfig-paths": "4.2.0",
     "typescript": "5.5.3",
-    "typescript-eslint": "7.16.1",
-    "vitest": "2.0.3"
+    "typescript-eslint": "7.16.1"
+  },
+  "ava": {
+    "files": [
+      "dist/**/*.test.js"
+    ],
+    "require": [
+      "./register-tsconfig-paths.js"
+    ]
   },
   "eslintConfig": {
     "extends": [
