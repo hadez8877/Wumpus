@@ -1,7 +1,6 @@
 import { Client, Invite } from "discord.js";
 import SimpleCache from "@/SimpleCache";
 
-
 export const MS = 1;
 export const SECONDS = 1000 * MS;
 export const MINUTES = 60 * SECONDS;
@@ -70,4 +69,3 @@ export async function resolveInvite<T extends boolean>(
 
   return promise as ResolveInviteReturnType;
 }
-
