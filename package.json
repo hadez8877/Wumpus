@@ -9,7 +9,6 @@
     "start-bot-dev": "node --enable-source-maps --stack-trace-limit=30 --inspect=0.0.0.0:9229 dist/index.js",
     "start-bot": "pnpm run start-bot-prod",
     "build": "tsc --build",
-    "start": "node .",
     "run-tests": "ava",
     "test-watch": "tsc-watch --build --onSuccess \"pnpx ava\"",
     "lint": "eslint --ext .ts,.js,.tsx .",
