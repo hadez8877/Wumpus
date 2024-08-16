@@ -27,5 +27,5 @@
     "strictPropertyInitialization": false,
     "useUnknownInCatchVariables": false
   },
-  "include": ["src/**/*.ts", "src/**/*.json"]
+  "include": ["src/**/*.ts", "db/**/*.ts", "src/**/*.json"]
 }

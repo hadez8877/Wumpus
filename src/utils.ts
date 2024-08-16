@@ -9,6 +9,8 @@ export const HOURS = 60 * MINUTES;
 export const DAYS = 24 * HOURS;
 export const WEEKS = 7 * 24 * HOURS;
 
+export const DEFAULT_PREFIX = "!";
+
 export function trimLines(str: string) {
   return str
     .trim()
