@@ -1,7 +1,7 @@
 import { GuildMember, PermissionsBitField } from "discord.js";
-import checkPermissions from "@/plugins/checkPermissions";
+import checkPermissions from "../plugins/checkPermissions";
 import test from "ava";
-import type APIPermissions from "@/types/permssions";
+import type APIPermissions from "../types/permssions";
 
 const mockGuildMember = (permissions: bigint): GuildMember =>
   ({

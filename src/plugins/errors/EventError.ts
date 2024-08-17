@@ -1,6 +1,6 @@
-import util from "util";
-import labelType from "@/utils/labels";
 import kleur from "kleur";
+import labelType from "../../utils/labels";
+import util from "util";
 
 type ErrorCodes = 3001 | 3002 | 3003 | 3004 | 3005;
 

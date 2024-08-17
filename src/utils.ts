@@ -1,5 +1,5 @@
 import { Client, Invite, InviteGuild, Guild, PartialChannelData, ChannelType } from "discord.js";
-import SimpleCache from "@/SimpleCache";
+import SimpleCache from "./SimpleCache";
 import tlds from "tlds";
 
 export const MS = 1;
@@ -8,8 +8,6 @@ export const MINUTES = 60 * SECONDS;
 export const HOURS = 60 * MINUTES;
 export const DAYS = 24 * HOURS;
 export const WEEKS = 7 * 24 * HOURS;
-
-export const DEFAULT_PREFIX = "!";
 
 export function trimLines(str: string) {
   return str

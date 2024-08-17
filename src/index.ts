@@ -1,14 +1,14 @@
 import { Message, ChannelType, PermissionsBitField } from "discord.js";
-import checkPermissions from "@/plugins/checkPermissions";
-import ClientError from "@errors/ClientError";
-import CommandError from "@errors/CommandError";
-import db from "db/config";
-import getGuildPrefix from "@/api/guilds/getGuildPrefix";
-import WumpusClient from "@/lib/WumpusClient";
+import checkPermissions from "./plugins/checkPermissions";
+import ClientError from "./plugins/errors/ClientError";
+import CommandError from "./plugins/errors/CommandError";
+import db from "../db/config";
+import getGuildPrefix from "./api/guilds/getGuildPrefix";
+import WumpusClient from "./lib/WumpusClient";
 
 import "dotenv/config";
 
-import approvedGuild from "@models/approvedGuildSchema";
+import approvedGuild from "../db/models/approvedGuildSchema";
 
 const client = new WumpusClient();
 
@@ -25,7 +25,7 @@ client.on("messageCreate", async (message: Message) => {
 
   if (!approvedGuildData) return;
 
-  const prefix = process.env.BOT_PREFIX ?? getGuildPrefix(client, message.guildId);
+  const prefix = await getGuildPrefix(client, message.guildId);
 
   if (message.channel.type === ChannelType.GuildText) {
     if (client.user && !message.channel.permissionsFor(client.user)?.has(PermissionsBitField.Flags.SendMessages))

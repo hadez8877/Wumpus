@@ -1,6 +1,6 @@
 import { Client, Message } from "discord.js";
-import BaseModule from "@/lib/BaseModule";
-import APIPermissions from "@/types/permssions";
+import BaseModule from "../BaseModule";
+import APIPermissions from "../../types/permssions";
 
 interface CommandData {
   aliases?: string[];

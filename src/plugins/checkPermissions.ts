@@ -1,6 +1,6 @@
 import { GuildMember } from "discord.js";
-import Permissions from "@/api/permissions";
-import APIPermissions from "@/types/permssions";
+import Permissions from "../api/permissions";
+import APIPermissions from "../types/permssions";
 
 const checkPermissions = (
   member: GuildMember,

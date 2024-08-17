@@ -1,5 +1,5 @@
 import { PermissionsBitField } from "discord.js";
-import type APIPermissions from "@/types/permssions";
+import type APIPermissions from "../types/permssions";
 
 const Permissions: Record<APIPermissions, bigint> = {
   createInstantInvite: PermissionsBitField.Flags.CreateInstantInvite,

@@ -1,5 +1,5 @@
 import { Message } from "discord.js";
-import Command from "@/lib/commands/Command";
+import Command from "../../../lib/commands/Command";
 
 class JumboCommand extends Command {
   constructor() {

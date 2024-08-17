@@ -1,5 +1,5 @@
 import util from "util";
-import labelType from "@/utils/labels";
+import labelType from "../../utils/labels";
 import kleur from "kleur";
 
 type ErrorCodes = 400 | 401 | 403 | 404 | 405 | 429 | 500 | 502 | 503 | 504;

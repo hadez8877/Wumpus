@@ -1,4 +1,4 @@
-import labelType from "@/utils/labels";
+import labelType from "./utils/labels";
 
 const logger = {
   info(...args: Parameters<typeof console.log>) {

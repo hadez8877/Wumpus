@@ -10,7 +10,7 @@ import {
   getUrlsInString,
   getInviteCodesInString,
   resolveInvite
-} from "@/utils";
+} from "./utils";
 
 const mockClient = {
   fetchInvite: async (code: string) => {

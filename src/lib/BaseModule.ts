@@ -1,5 +1,5 @@
-import BaseHandler from "@/lib/BaseHandler";
-import WumpusClient from "@/lib/WumpusClient";
+import BaseHandler from "./BaseHandler";
+import WumpusClient from "./WumpusClient";
 
 export interface BaseModuleData {
   category?: string;

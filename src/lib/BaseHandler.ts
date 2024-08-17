@@ -2,8 +2,8 @@ import { Collection } from "discord.js";
 import EventEmitter from "events";
 import { readdirSync, statSync } from "fs";
 import path from "path";
-import BaseModule from "@/lib/BaseModule";
-import WumpusBot from "@/lib/WumpusClient";
+import BaseModule from "./BaseModule";
+import WumpusBot from "./WumpusClient";
 
 export interface BaseHandlerData {
   path: string;

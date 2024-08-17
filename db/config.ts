@@ -1,5 +1,5 @@
-import DBError from "@errors/DBError";
-import logger from "@/logger";
+import DBError from "../src/plugins/errors/DBError";
+import logger from "../src/logger";
 import mongoose from "mongoose";
 
 import "dotenv/config";

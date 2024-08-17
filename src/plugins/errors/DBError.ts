@@ -1,5 +1,5 @@
 import util from "util";
-import labelType from "@/utils/labels";
+import labelType from "../../utils/labels";
 import kleur from "kleur";
 
 type ErrorCodes = 12002 | 11000 | 121 | 50 | 6 | 89 | 94;

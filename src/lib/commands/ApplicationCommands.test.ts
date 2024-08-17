@@ -1,5 +1,5 @@
 import test from "ava";
-import WumpusClient from "@/lib/WumpusClient";
+import WumpusClient from "../WumpusClient";
 
 const client = new WumpusClient();
 

@@ -1,49 +1,45 @@
 import { Collection } from "discord.js";
 import { readdirSync, statSync } from "fs";
-import BaseHandler from "@/lib/BaseHandler";
-import Command from "@/lib/commands/Command";
-import kleur from "kleur";
-import labelType from "@/utils/labels";
-import logger from "@/logger";
 import path from "path";
 import readline from "readline";
-import src from "@/utils/src";
-import WumpusBot from "@/lib/WumpusClient";
+import kleur from "kleur";
+import logger from "../../logger";
+import Command from "./Command";
+import WumpusBot from "../WumpusClient";
+import src from "../../utils/src";
+import labelType from "../../utils/labels";
 
-class CommandHandler extends BaseHandler {
+class CommandHandler {
   client: WumpusBot;
   modules: Collection<string, Command>;
   errorsFound: number;
   commandsLoaded: number;
+  path: string;
 
   constructor(client: WumpusBot) {
-    super(client, {
-      path: src("data")
-    });
-
     this.client = client;
     this.modules = new Collection();
     this.errorsFound = 0;
     this.commandsLoaded = 0;
+    this.path = src("data");
   }
 
   async loadAll() {
-    const commandFiles = this.getAllFiles(this.path).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
+    const commandFiles = this.getAllFiles(this.path);
 
     this.commandsStatus();
 
     for (const file of commandFiles) {
+      if (!file.endsWith(".ts") && !file.endsWith(".js")) continue;
+
       try {
         const commandModule = await import(file);
         const command: Command = new commandModule.default();
-
         this.modules.set(command.id, command);
-
         this.commandsLoaded++;
       } catch (err) {
         this.errorsFound++;
-
-        return logger.error(`\nError loading command from file ${kleur.bold().blue(`${file}`)}:\n`, err);
+        logger.error(`Error loading command from file ${kleur.bold().blue(file)}:\n`, err);
       }
 
       this.commandsStatus();
@@ -51,7 +47,6 @@ class CommandHandler extends BaseHandler {
 
     readline.cursorTo(process.stdout as any, 0);
     readline.clearLine(process.stdout as any, 0);
-
     process.stdout.write(`${labelType.SUCCESS} ${kleur.green("Commands loaded!\n")}`);
   }
 
@@ -82,7 +77,6 @@ class CommandHandler extends BaseHandler {
   private commandsStatus() {
     readline.cursorTo(process.stdout as any, 0);
     readline.clearLine(process.stdout as any, 0);
-
     process.stdout.write(
       `${kleur.bold().blue(`${this.commandsLoaded} commands`)} and ${kleur.bold().red(`${this.errorsFound} errors`)} have been found.`
     );

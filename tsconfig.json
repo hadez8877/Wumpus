@@ -4,11 +4,11 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "target": "esnext",
+    "target": "ESNext",
     "lib": ["ES2023"],
     "types": ["node"],
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
+    "moduleResolution": "Node",
+    "module": "CommonJS",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "sourceMap": true,
@@ -19,11 +19,6 @@
     "baseUrl": "./",
     "rootDir": "./",
     "outDir": "./dist",
-    "paths": {
-      "@/*": ["src/*"],
-      "@models/*": ["db/models/*"],
-      "@errors/*": ["src/plugins/errors/*"]
-    },
     "strictPropertyInitialization": false,
     "useUnknownInCatchVariables": false
   },

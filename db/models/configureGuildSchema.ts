@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
-import { DEFAULT_PREFIX } from "@/utils";
+
+import "dotenv/config";
 
 const configureGuild = new Schema({
   guildId: {
@@ -9,7 +10,7 @@ const configureGuild = new Schema({
   },
   prefix: {
     type: String,
-    default: DEFAULT_PREFIX
+    default: process.env.BOT_PREFIX
   },
   muterole: {
     type: String,
